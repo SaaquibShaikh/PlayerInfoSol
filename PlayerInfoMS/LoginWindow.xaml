@@ -1,0 +1,100 @@
+﻿<Window x:Class="PlayerInfoMS.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlayerInfoMS"
+        mc:Ignorable="d"
+        Title="LoginWindow" 
+        Height="400" 
+        Width="500"
+        WindowStyle="ToolWindow"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        Closed="Window_Closed">
+    <Border Background="#FF1C1C1C">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Login page" 
+                       Grid.Row="1" 
+                       Grid.Column="1"
+                       Grid.ColumnSpan="3"
+                       Foreground="{DynamicResource ForegroundDarkBrush}"
+                       VerticalAlignment="Center"
+                       FontSize="30"/>
+            <TextBlock Text="Username"
+                       Grid.Row="2"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="2"
+                       Grid.RowSpan="2"
+                       VerticalAlignment="Center"
+                       FontSize="25"
+                       Foreground="{DynamicResource ForegroundDarkBrush}"/>
+            <TextBlock Text="Password"
+                       Grid.Row="4"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="2"
+                       VerticalAlignment="Top"
+                       FontSize="25"
+                       Foreground="{DynamicResource ForegroundDarkBrush}"/>
+            <TextBox x:Name="usernameTB"
+                     Style="{StaticResource roundCornerTextBox}"
+                     Grid.Row="2"
+                     Grid.Column="3"
+                     Grid.ColumnSpan="5"
+                     Grid.RowSpan="2"
+                     VerticalAlignment="Center"
+                     FontSize="25"
+                     Foreground="{DynamicResource ForegroundMainBrush}"/>
+            <PasswordBox x:Name="passwordB"
+                         Style="{StaticResource roundcornerpassword}"
+                         Grid.Row="4"
+                         Grid.Column="3"
+                         Grid.ColumnSpan="5"
+                         VerticalAlignment="Top"
+                         FontSize="25"
+                         Foreground="{DynamicResource ForegroundMainBrush}"/>
+            <Button x:Name="cancelBT"
+                    Style="{StaticResource cancelButton}"
+                    Grid.Row="5"
+                    Grid.Column="2"
+                    Grid.RowSpan="2"
+                    Grid.ColumnSpan="2"
+                    Margin="0,30"
+                    Content="Cancel"
+                    FontSize="18"/>
+            <Button x:Name="loginBT"
+                    Style="{StaticResource loginButton}"
+                    Grid.Row="5"
+                    Grid.Column="5"
+                    Grid.RowSpan="2"
+                    Grid.ColumnSpan="2"
+                    Margin="0,30"
+                    Content="Login"
+                    FontSize="18"/>
+        </Grid>
+    </Border>
+</Window>
