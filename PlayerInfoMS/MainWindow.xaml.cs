@@ -25,21 +25,6 @@ namespace PlayerInfoMS
             InitializeComponent();
         }
 
-        private void asAdmin_Click(object sender, RoutedEventArgs e)
-        {
-            LoginWindow login = new LoginWindow();
-            login.Owner = this;
-            asAdmin.Visibility = Visibility.Collapsed;
-            asGuest.Visibility = Visibility.Collapsed;
-            login.Show();
-            
-        }
-
-        private void asGuest_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
         //Exit on window close button
         private void windowClose_Click(object sender, RoutedEventArgs e)
         {
@@ -53,33 +38,34 @@ namespace PlayerInfoMS
         //Navbar Home button actions
         private void radioHome_Click(object sender, RoutedEventArgs e)
         {
-            asAdmin.Visibility = Visibility.Collapsed;
-            asGuest.Visibility = Visibility.Collapsed;
+            homePageScrollview.Visibility = Visibility.Visible;
         }
 
-        //Navbar Home button actions
-        private void RadioButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        //Navbar Home button actions
+        //Navbar tournaments button actions
         private void radioTournaments_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        //Navbar Home button actions
+        //Navbar teams button actions
         private void radioTeams_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        //Navbar Home button actions
+        //Navbar login button actions
         private void radioLogin_Click(object sender, RoutedEventArgs e)
         {
-            asAdmin.Visibility = Visibility.Visible;
-            asGuest.Visibility = Visibility.Visible;
+            homePageScrollview.Visibility = Visibility.Collapsed;
+        }
+
+        private void homeLogin_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow login = new LoginWindow();
+            login.Owner = this;
+            homePageScrollview.Visibility = Visibility.Collapsed;
+
+            login.Show();
         }
     }
 }
