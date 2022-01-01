@@ -44,13 +44,13 @@ namespace PlayerInfoMS
         //Navbar tournaments button actions
         private void radioTournaments_Click(object sender, RoutedEventArgs e)
         {
-
+            homePageScrollview.Visibility = Visibility.Collapsed;
         }
 
         //Navbar teams button actions
         private void radioTeams_Click(object sender, RoutedEventArgs e)
         {
-
+            homePageScrollview.Visibility = Visibility.Collapsed;
         }
 
         //Navbar login button actions
