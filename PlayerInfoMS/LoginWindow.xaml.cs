@@ -24,11 +24,12 @@ namespace PlayerInfoMS
             InitializeComponent();
         }
 
+
+        //login window closed event
         private void Window_Closed(object sender, EventArgs e)
         {
             MainWindow mainWindow = Owner as MainWindow;
-            mainWindow.asAdmin.Visibility = Visibility.Visible;
-            mainWindow.asGuest.Visibility = Visibility.Visible;
+            mainWindow.homePageScrollview.Visibility = Visibility.Visible;
         }
     }
 }
