@@ -147,7 +147,40 @@
             </StackPanel>
             
             <!-- Home page -->
-            
+            <ScrollViewer Grid.Row="1"
+                          Grid.Column="2"
+                          Grid.ColumnSpan="6"
+                          Grid.RowSpan="8">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.RowSpan="9"
+                                Grid.ColumnSpan="8">
+
+                        
+
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
 
 
         <!--<ContentControl x:Name="loginPage" Grid.Row="1" Grid.Column="2" 
