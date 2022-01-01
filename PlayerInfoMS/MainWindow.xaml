@@ -51,54 +51,14 @@
                     ToolTip="Right click to minimize"
                     Style="{StaticResource WindowCloseButton}"/>
 
-            <!-- Login as admin -->
-            <Button x:Name="asAdmin" 
-                Content="Login as admin"
-                Grid.Row="2" 
-                Grid.Column="3" 
-                Grid.ColumnSpan="4"
-                Grid.RowSpan="2" 
-                Margin="10,10" 
-                Background="#e3525b" 
-                Foreground="White"
-                FontSize="30" 
-                Click="asAdmin_Click">
-            <Button.Resources>
-                <Style TargetType="Border">
-                        <Setter Property="CornerRadius" 
-                            Value="10"/>
-                    </Style>
-            </Button.Resources>
-        </Button>
-        
-        <!-- Continue as guest -->    
-        <Button x:Name="asGuest" 
-                Content="Continue as guest"
-                Grid.Row="5" 
-                Grid.Column="3" 
-                Grid.ColumnSpan="4"
-                Grid.RowSpan="2" 
-                Margin="10,10" 
-                Background="#5fa8ed" 
-                Foreground="White"
-                FontSize="30" 
-                Click="asGuest_Click">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" 
-                            Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Border Grid.Row="0" 
+
+            <Border Grid.Row="0" 
                 Grid.RowSpan="9" 
                 Grid.ColumnSpan="2"
                 Background="#272550" 
                 CornerRadius="20"/>
 
-
-
-        <TextBlock Grid.Row="0" 
+            <TextBlock Grid.Row="0" 
                    Grid.ColumnSpan="2"
                    Text="PlayerDB" 
                    HorizontalAlignment="Center" 
@@ -150,7 +110,8 @@
             <ScrollViewer Grid.Row="1"
                           Grid.Column="2"
                           Grid.ColumnSpan="6"
-                          Grid.RowSpan="8">
+                          Grid.RowSpan="8"
+                          Name="homePageScrollview">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -175,8 +136,41 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.RowSpan="9"
                                 Grid.ColumnSpan="8">
+                        
+                        <!-- homepage login/logout button -->
+                        <Button x:Name="homeLogin"
+                                Width="50"
+                                Height="30"
+                                Style="{StaticResource loginHome}"
+                                HorizontalAlignment="Right"
+                                Content="Login"
+                                Margin="0,0,20,0"
+                                Click="homeLogin_Click"/>
+
+                        <TextBlock Text="Ongoing Tournaments"
+                                   FontSize="30"
+                                   Foreground="White"
+                                   HorizontalAlignment="Center"
+                                   Margin="0,0,0,20"/>
 
                         
+                        <ListBox Height="200"
+                                 Margin="20 0 20 20">
+
+                            
+                        </ListBox>
+                        
+
+                        <TextBlock Text="Top 10 Players"
+                                   FontSize="30"
+                                   Foreground="White"
+                                   HorizontalAlignment="Center"
+                                   Margin="0,0,0,20"/>
+
+                        <ListBox Height="200"
+                                 Margin="20 0 20 20">
+
+                        </ListBox>
 
                     </StackPanel>
                 </Grid>
