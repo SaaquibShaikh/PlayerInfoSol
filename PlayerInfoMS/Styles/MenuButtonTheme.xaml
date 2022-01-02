@@ -13,17 +13,11 @@
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}">
-                                <TextBlock Text="{TemplateBinding Property=Content}"
+                            <TextBlock Text="{TemplateBinding Property=Content}"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"
-                                           Foreground="{TemplateBinding Foreground}"
-                                           x:Name="radioTextbox"/>
-                            </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Opacity" Value="1"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
+                                           Foreground="{TemplateBinding Foreground}"/>
+                        </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
