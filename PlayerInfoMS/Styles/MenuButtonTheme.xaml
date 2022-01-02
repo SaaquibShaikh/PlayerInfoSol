@@ -14,9 +14,16 @@
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}">
                                 <TextBlock Text="{TemplateBinding Property=Content}"
-                                       VerticalAlignment="Center"
-                                       HorizontalAlignment="Center"/>
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           Foreground="{TemplateBinding Foreground}"
+                                           x:Name="radioTextbox"/>
                             </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="1"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -24,6 +31,7 @@
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="5"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="white"/>
         </Style.Setters>
 
         <Style.Triggers>
@@ -31,7 +39,9 @@
                 <Setter Property="Background" Value="#22202f"/>
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="BorderBrush" Value="#22202f"/>
+                <Setter Property="Background" Value="#C5C5C5"/>
+                <Setter Property="Opacity" Value="0.25"/>
+                <Setter Property="Foreground" Value="Black"/>
             </Trigger>
         </Style.Triggers>
     </Style>
