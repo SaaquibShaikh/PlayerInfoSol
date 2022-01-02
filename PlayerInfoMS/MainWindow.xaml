@@ -51,7 +51,7 @@
                     ToolTip="Right click to minimize"
                     Style="{StaticResource WindowCloseButton}"/>
 
-
+            <!-- navbar -->
             <Border Grid.Row="0" 
                 Grid.RowSpan="9" 
                 Grid.ColumnSpan="2"
@@ -74,7 +74,6 @@
                 <!-- Nav Home button -->
                 <RadioButton Content="Home"
                              Height="50"
-                             Foreground="White"
                              FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
                              x:Name="radioHome"
@@ -83,7 +82,6 @@
                 
                 <RadioButton Content="Tournaments"
                              Height="50"
-                             Foreground="White"
                              FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
                              x:Name="radioTournaments"
@@ -91,7 +89,6 @@
 
                 <RadioButton Content="Teams"
                              Height="50"
-                             Foreground="White"
                              FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
                              x:Name="radioTeams"
@@ -99,7 +96,6 @@
 
                 <RadioButton Content="Login"
                              Height="50"
-                             Foreground="White"
                              FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
                              x:Name="radioLogin"
@@ -155,8 +151,8 @@
 
                         
                         <ListBox Height="200"
-                                 Margin="20 0 20 20">
-
+                                 Margin="20 0 20 20"
+                                 Style="{StaticResource baseListBox}">
                             
                         </ListBox>
                         
