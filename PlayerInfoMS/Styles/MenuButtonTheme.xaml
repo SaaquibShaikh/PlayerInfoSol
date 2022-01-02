@@ -7,16 +7,18 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="RadioButton">
-                        <Border VerticalAlignment="Stretch"
+                        <Border x:Name="menuButtonBorder"
+                                VerticalAlignment="Stretch"
                                 HorizontalAlignment="Stretch"
                                 CornerRadius="10"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}">
                             <TextBlock Text="{TemplateBinding Property=Content}"
-                                           VerticalAlignment="Center"
-                                           HorizontalAlignment="Center"
-                                           Foreground="{TemplateBinding Foreground}"/>
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       Name="menuButtonTextBlock"/>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
