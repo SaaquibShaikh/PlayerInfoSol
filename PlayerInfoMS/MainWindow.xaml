@@ -143,29 +143,37 @@
                                 Margin="0,0,20,0"
                                 Click="homeLogin_Click"/>
 
-                        <TextBlock Text="Ongoing Tournaments"
+                        
+                        <TextBlock Text="Top Players"
                                    FontSize="30"
                                    Foreground="White"
                                    HorizontalAlignment="Center"
-                                   Margin="0,0,0,20"/>
+                                   Margin="0,-20,0,20"/>
 
-                        
+                        <TextBlock Text="Criket"
+                                   Foreground="white"
+                                   FontSize="24"
+                                   Margin="20,0,20,20"/>
+
                         <ListBox Height="200"
-                                 Margin="20 0 20 20"
-                                 Style="{StaticResource baseListBox}">
-                            
+                                 Margin="20 0 80 20"
+                                 Style="{StaticResource baseListBox}"
+                                 Foreground="white">
+                            <ListBoxItem Style="{StaticResource baseListBoxItem}">hello</ListBoxItem>
+                            <ListBoxItem Style="{StaticResource baseListBoxItem}">hello</ListBoxItem>
                         </ListBox>
-                        
 
-                        <TextBlock Text="Top 10 Players"
-                                   FontSize="30"
-                                   Foreground="White"
-                                   HorizontalAlignment="Center"
-                                   Margin="0,0,0,20"/>
+
+                        <TextBlock Text="Football"
+                                   Foreground="white"
+                                   FontSize="24"
+                                   Margin="20,0,20,20"/>
 
                         <ListBox Height="200"
-                                 Margin="20 0 20 20">
-
+                                 Margin="20 0 80 20"
+                                 Style="{StaticResource baseListBox}"
+                                 Foreground="white">
+                            <ListBoxItem Style="{StaticResource baseListBoxItem}">hello</ListBoxItem>
                         </ListBox>
 
                     </StackPanel>
