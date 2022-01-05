@@ -12,7 +12,7 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen" 
         Background="Transparent"
-        AllowsTransparency="True">
+        AllowsTransparency="True" Loaded="Window_Loaded">
 
     <Border CornerRadius="20"
             Background="#272537">
@@ -94,12 +94,12 @@
                              x:Name="radioTeams"
                              Click="radioTeams_Click"/>
 
-                <RadioButton Content="Login"
+                <RadioButton Content="Players"
                              Height="50"
                              FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
-                             x:Name="radioLogin"
-                             Click="radioLogin_Click"/>
+                             x:Name="radioPlayers"
+                             Click="radioPlayers_Click"/>
             </StackPanel>
             
             <!-- Home page -->
@@ -150,17 +150,37 @@
                                    HorizontalAlignment="Center"
                                    Margin="0,-20,0,20"/>
 
-                        <TextBlock Text="Criket"
+                        <TextBlock Text="Cricket"
                                    Foreground="white"
                                    FontSize="24"
                                    Margin="20,0,20,20"/>
 
-                        <ListBox Height="200"
+                        <!-- Top Cricket players list -->
+                        <ListBox x:Name="topCricketPlayers"
+                                 Height="400"
                                  Margin="20 0 80 20"
                                  Style="{StaticResource baseListBox}"
                                  Foreground="white">
-                            <ListBoxItem Style="{StaticResource baseListBoxItem}">hello</ListBoxItem>
-                            <ListBoxItem Style="{StaticResource baseListBoxItem}">hello</ListBoxItem>
+                            <ListBox.ItemTemplate >
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Grid.Column="1">
+                                            <TextBlock Text="{Binding Name}"/>
+                                            <TextBlock Text="{Binding Ssn}"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem"
+                                        BasedOn="{StaticResource baseListBoxItem}">
+                                    <Setter Property="Margin" Value="7"/>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
                         </ListBox>
 
 
@@ -169,6 +189,7 @@
                                    FontSize="24"
                                    Margin="20,0,20,20"/>
 
+                        <!-- top Football players list -->
                         <ListBox Height="200"
                                  Margin="20 0 80 20"
                                  Style="{StaticResource baseListBox}"

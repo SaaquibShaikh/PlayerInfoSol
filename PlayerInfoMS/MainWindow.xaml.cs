@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PlayerInfoMS.Cricket;
+using PlayerInfoMS.DataBaseAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +22,8 @@ namespace PlayerInfoMS
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Employee> emplist = new List<Employee>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -54,7 +58,7 @@ namespace PlayerInfoMS
         }
 
         //Navbar login button actions
-        private void radioLogin_Click(object sender, RoutedEventArgs e)
+        private void radioPlayers_Click(object sender, RoutedEventArgs e)
         {
             homePageScrollview.Visibility = Visibility.Collapsed;
         }
@@ -68,5 +72,12 @@ namespace PlayerInfoMS
             login.Show();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            FetchData empdata = new FetchData();
+            emplist = empdata.employees();
+
+            topCricketPlayers.ItemsSource = emplist;
+        }
     }
 }

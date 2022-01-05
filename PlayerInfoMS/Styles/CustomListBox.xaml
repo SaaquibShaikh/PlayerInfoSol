@@ -21,8 +21,8 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ListBox">
                     <Border Name="Border"
-                BorderThickness="1"
-                CornerRadius="10">
+                            BorderThickness="0"
+                            CornerRadius="10">
                         <Border.Background>
                             <SolidColorBrush Color="#272550" />
                         </Border.Background>
@@ -32,7 +32,7 @@
                         <ScrollViewer Margin="0"
                         Focusable="false">
                             <StackPanel Margin="2"
-                        IsItemsHost="True" />
+                        IsItemsHost="True"/>
                         </ScrollViewer>
                     </Border>
                     <ControlTemplate.Triggers>
