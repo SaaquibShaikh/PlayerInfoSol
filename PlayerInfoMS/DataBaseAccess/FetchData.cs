@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using MySql.Data.MySqlClient;
+using PlayerInfoMS.Administrators;
 using PlayerInfoMS.Cricket;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,16 @@ namespace PlayerInfoMS.DataBaseAccess
             {
                 var output = connection.Query<Employee>("select * from employee").ToList();
                 return output;
+            }
+        }
+
+        //returns the list of Administators
+        public List<Users> getUsers()
+        {
+            using(IDbConnection connection = new MySqlConnection(ConnStringHelper.getConnString("UsersDB")))
+            {
+                
+                    return connection.Query<Users>("select * from administrators").ToList();
             }
         }
     }

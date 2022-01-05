@@ -79,5 +79,10 @@ namespace PlayerInfoMS
 
             topCricketPlayers.ItemsSource = emplist;
         }
+
+        private void homeLogout_Click(object sender, RoutedEventArgs e)
+        {
+            //Todo Remove the administrator privileges from currently logged in user
+        }
     }
 }

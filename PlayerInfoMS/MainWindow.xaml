@@ -133,7 +133,7 @@
                     <StackPanel Grid.RowSpan="9"
                                 Grid.ColumnSpan="8">
                         
-                        <!-- homepage login/logout button -->
+                        <!-- homepage login button -->
                         <Button x:Name="homeLogin"
                                 Width="50"
                                 Height="30"
@@ -142,6 +142,16 @@
                                 Content="Login"
                                 Margin="0,0,20,0"
                                 Click="homeLogin_Click"/>
+                        <!-- homepage logout button -->
+                        <Button x:Name="homeLogout"
+                                Width="50"
+                                Height="30"
+                                Style="{StaticResource logoutHome}"
+                                HorizontalAlignment="Right"
+                                Content="Logout"
+                                Margin="0,0,20,0"
+                                Click="homeLogout_Click"
+                                Visibility="Collapsed"/>
 
                         
                         <TextBlock Text="Top Players"

@@ -12,7 +12,8 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Background="Transparent"
-        Closed="Window_Closed">
+        Closed="Window_Closed" 
+        Loaded="Window_Loaded">
     <Border Background="#FF1C1C1C">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -61,7 +62,7 @@
                        FontSize="25"
                        Foreground="{DynamicResource ForegroundDarkBrush}"/>
             <TextBox x:Name="usernameTB"
-                     Style="{StaticResource roundCornerTextBox}"
+                     Style="{StaticResource baseTextBox}"
                      Grid.Row="2"
                      Grid.Column="3"
                      Grid.ColumnSpan="5"
@@ -94,7 +95,8 @@
                     Grid.ColumnSpan="2"
                     Margin="0,30"
                     Content="Login"
-                    FontSize="18"/>
+                    FontSize="18"
+                    Click="loginBT_Click"/>
         </Grid>
     </Border>
 </Window>

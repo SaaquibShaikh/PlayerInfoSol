@@ -81,13 +81,25 @@
         </Style.Triggers>
     </Style>
     
-    <!-- login/logout button in the home page -->
+    <!-- login button in the home page -->
     <Style TargetType="{x:Type Button}" x:Key="loginHome" BasedOn="{StaticResource baseButton}">
         <Setter Property="Background" Value="{StaticResource WordLightBlueBrush}"/>
         <Setter Property="Foreground" Value="#1C1C1C"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{StaticResource WordBlueBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource ForegroundLightBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- logout button in the home page -->
+    <Style TargetType="{x:Type Button}" x:Key="logoutHome" BasedOn="{StaticResource baseButton}">
+        <Setter Property="Background" Value="#E3525B"/>
+        <Setter Property="Foreground" Value="#1C1C1C"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#E81123"/>
                 <Setter Property="Foreground" Value="{StaticResource ForegroundLightBrush}"/>
             </Trigger>
         </Style.Triggers>
