@@ -23,6 +23,7 @@ namespace PlayerInfoMS
     public partial class MainWindow : Window
     {
         List<Employee> emplist = new List<Employee>();
+        List<Employee> emplist2 = new List<Employee>();
 
         public MainWindow()
         {
@@ -83,6 +84,14 @@ namespace PlayerInfoMS
         private void homeLogout_Click(object sender, RoutedEventArgs e)
         {
             //Todo Remove the administrator privileges from currently logged in user
+        }
+
+        //topCricketPlayers.SelectedIndex --> returns the selected index of a listboxitem
+        private void ListBoxItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            FetchData empdata = new FetchData();
+            emplist2 = empdata.employees();
+            MessageBox.Show($"{emplist2.ElementAt(topCricketPlayers.SelectedIndex).Ssn}");
         }
     }
 }

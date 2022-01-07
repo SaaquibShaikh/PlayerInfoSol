@@ -171,7 +171,7 @@
                                  Margin="20 0 80 20"
                                  Style="{StaticResource baseListBox}"
                                  Foreground="white">
-                            <ListBox.ItemTemplate >
+                            <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -179,8 +179,8 @@
                                             <ColumnDefinition/>
                                         </Grid.ColumnDefinitions>
                                         <Image Source="/Icons/default.jpg"
-                                               Margin="5"/>
-                                            <StackPanel Grid.Column="1">
+                                               Margin="5,0"/>
+                                        <StackPanel Grid.Column="1">
                                             <TextBlock Text="{Binding Name}"/>
                                             <TextBlock Text="{Binding Ssn}"/>
                                         </StackPanel>
@@ -188,11 +188,13 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                             <ListBox.ItemContainerStyle>
-                                <Style TargetType="ListBoxItem"
+                                    <Style TargetType="ListBoxItem"
                                         BasedOn="{StaticResource baseListBoxItem}">
-                                    <Setter Property="Margin" Value="7"/>
+                                        <Setter Property="Margin" Value="7"/>
+                                    <EventSetter Event="MouseDoubleClick" 
+                                                     Handler="ListBoxItem_MouseDoubleClick"/>
                                 </Style>
-                            </ListBox.ItemContainerStyle>
+                                </ListBox.ItemContainerStyle>
                         </ListBox>
 
 
@@ -207,6 +209,7 @@
                                  Style="{StaticResource baseListBox}"
                                  Foreground="white">
                             <ListBoxItem Style="{StaticResource baseListBoxItem}">hello</ListBoxItem>
+                            <ListBoxItem Style="{StaticResource baseListBoxItem}">mello</ListBoxItem>
                         </ListBox>
 
                     </StackPanel>

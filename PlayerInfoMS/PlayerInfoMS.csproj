@@ -73,6 +73,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Cricket\CrickPlayer.cs" />
     <Compile Include="Cricket\Employee.cs" />
     <Compile Include="DataBaseAccess\ConnStringHelper.cs" />
     <Compile Include="DataBaseAccess\FetchData.cs" />

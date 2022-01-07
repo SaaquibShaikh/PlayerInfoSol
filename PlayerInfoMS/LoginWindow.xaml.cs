@@ -52,10 +52,10 @@ namespace PlayerInfoMS
             if (userList.Exists(x => x.userName == usernameTB.Text && x.password == passwordB.Password))
             {
                 //Todo Handover the administrator privileges
-                MainWindow mainWindow = Owner as MainWindow;
-                mainWindow.homePageScrollview.Visibility = Visibility.Visible;
                 Close();
                 MessageBox.Show($"logged in as {usernameTB.Text}");
+                MainWindow mainWindow = Owner as MainWindow;
+                mainWindow.homePageScrollview.Visibility = Visibility.Visible;
                 mainWindow.homeLogin.Visibility = Visibility.Collapsed;
                 mainWindow.homeLogout.Visibility = Visibility.Visible;
             }    
