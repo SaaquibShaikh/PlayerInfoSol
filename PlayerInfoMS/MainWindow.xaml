@@ -107,7 +107,7 @@
                           Grid.Column="2"
                           Grid.ColumnSpan="6"
                           Grid.RowSpan="8"
-                          Name="homePageScrollview">
+                          Name="homePageScrollview" d:IsHidden="True">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -216,8 +216,401 @@
                 </Grid>
             </ScrollViewer>
 
+            <!-- Tournaments page -->
+            <ScrollViewer Grid.Row="1"
+                          Grid.Column="2"
+                          Grid.ColumnSpan="6"
+                          Grid.RowSpan="8"
+                          Name="tourPageScrollview" d:IsHidden="True">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.RowSpan="9"
+                                Grid.ColumnSpan="8">
 
-        <!--<ContentControl x:Name="loginPage" Grid.Row="1" Grid.Column="2" 
+                        <TextBlock Text="Cricket"
+                                   Foreground="white"
+                                   FontSize="24"
+                                   Margin="20,0,20,20"/>
+
+                        <!-- Cricket players list -->
+                        <ListBox x:Name="cricketTourList"
+                                 Height="400"
+                                 Margin="20 0 80 20"
+                                 Style="{StaticResource baseListBox}"
+                                 Foreground="white">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="/Icons/default.jpg"
+                                               Margin="5,0"/>
+                                        <StackPanel Grid.Column="1">
+                                            <TextBlock Text="hello"/>
+                                            <TextBlock Text="world"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem"
+                                        BasedOn="{StaticResource baseListBoxItem}">
+                                    <Setter Property="Margin" Value="7"/>
+                                    <EventSetter Event="MouseDoubleClick" 
+                                                     Handler="ListBoxItem_MouseDoubleClick"/>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                        </ListBox>
+
+
+                        <TextBlock Text="Football"
+                                   Foreground="white"
+                                   FontSize="24"
+                                   Margin="20,0,20,20"/>
+
+                        <!-- Football players list -->
+                        <ListBox Height="200"
+                                 Margin="20 0 80 20"
+                                 Style="{StaticResource baseListBox}"
+                                 Foreground="white">
+                            <ListBoxItem Style="{StaticResource baseListBoxItem}">hello</ListBoxItem>
+                            <ListBoxItem Style="{StaticResource baseListBoxItem}">mello</ListBoxItem>
+                        </ListBox>
+
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+
+            <!-- Teams page -->
+            <ScrollViewer Grid.Row="1"
+                          Grid.Column="2"
+                          Grid.ColumnSpan="6"
+                          Grid.RowSpan="8"
+                          Name="teamsPageScrollview" d:IsHidden="True">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.RowSpan="9"
+                                Grid.ColumnSpan="8">
+
+                        <TextBlock Text="Cricket"
+                                   Foreground="white"
+                                   FontSize="24"
+                                   Margin="20,0,20,20"/>
+
+                        <!-- Cricket players list -->
+                        <ListBox x:Name="cricketTeamsList"
+                                 Height="400"
+                                 Margin="20 0 80 20"
+                                 Style="{StaticResource baseListBox}"
+                                 Foreground="white">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="/Icons/default.jpg"
+                                               Margin="5,0"/>
+                                        <StackPanel Grid.Column="1">
+                                            <TextBlock Text="hello"/>
+                                            <TextBlock Text="world"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem"
+                                        BasedOn="{StaticResource baseListBoxItem}">
+                                    <Setter Property="Margin" Value="7"/>
+                                    <EventSetter Event="MouseDoubleClick" 
+                                                     Handler="ListBoxItem_MouseDoubleClick"/>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                        </ListBox>
+
+
+                        <TextBlock Text="Football"
+                                   Foreground="white"
+                                   FontSize="24"
+                                   Margin="20,0,20,20"/>
+
+                        <!-- Football players list -->
+                        <ListBox Height="200"
+                                 Margin="20 0 80 20"
+                                 Style="{StaticResource baseListBox}"
+                                 Foreground="white">
+                            <ListBoxItem Style="{StaticResource baseListBoxItem}">hello</ListBoxItem>
+                            <ListBoxItem Style="{StaticResource baseListBoxItem}">mello</ListBoxItem>
+                        </ListBox>
+
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+
+            <!-- Players page -->
+            <ScrollViewer Grid.Row="1"
+                          Grid.Column="2"
+                          Grid.ColumnSpan="6"
+                          Grid.RowSpan="8"
+                          Name="playersPageScrollview" d:IsHidden="True">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.RowSpan="9"
+                                Grid.ColumnSpan="8">
+
+                        <TextBlock Text="Cricket"
+                                   Foreground="white"
+                                   FontSize="24"
+                                   Margin="20,0,20,20"/>
+
+                        <!-- Cricket players list -->
+                        <ListBox x:Name="cricketPlayersList"
+                                 Height="400"
+                                 Margin="20 0 80 20"
+                                 Style="{StaticResource baseListBox}"
+                                 Foreground="white">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="/Icons/default.jpg"
+                                               Margin="5,0"/>
+                                        <StackPanel Grid.Column="1">
+                                            <TextBlock Text="hello"/>
+                                            <TextBlock Text="world"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem"
+                                        BasedOn="{StaticResource baseListBoxItem}">
+                                    <Setter Property="Margin" Value="7"/>
+                                    <EventSetter Event="MouseDoubleClick" 
+                                                     Handler="ListBoxItem_MouseDoubleClick"/>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                        </ListBox>
+
+
+                        <TextBlock Text="Football"
+                                   Foreground="white"
+                                   FontSize="24"
+                                   Margin="20,0,20,20"/>
+
+                        <!-- Football players list -->
+                        <ListBox Height="200"
+                                 Margin="20 0 80 20"
+                                 Style="{StaticResource baseListBox}"
+                                 Foreground="white">
+                            <ListBoxItem Style="{StaticResource baseListBoxItem}">hello</ListBoxItem>
+                            <ListBoxItem Style="{StaticResource baseListBoxItem}">mello</ListBoxItem>
+                        </ListBox>
+
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+            
+            <!-- Cricket player info page -->
+            <ScrollViewer Grid.Row="1"
+                          Grid.Column="2"
+                          Grid.ColumnSpan="6"
+                          Grid.RowSpan="8"
+                          Name="playerInfoScrollview"
+                          Foreground="White"
+                          Visibility="Visible">
+                <Grid>
+                    <StackPanel>
+                        
+                        <!-- Player info -->
+                        <Border Height="300"
+                                Background="#272550"
+                                CornerRadius="10"
+                                Margin="20,0,80,20">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="/Icons/default.jpg"
+                                       Margin="10"
+                                       VerticalAlignment="Top"/>
+                                <StackPanel Grid.Column="1"
+                                            Grid.ColumnSpan="2">
+                                    <!-- Name -->
+                                    <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Name : "
+                                               FontSize="20"/>
+                                        <TextBlock Text="{Binding Name}"
+                                               FontSize="24"/>
+                                    </StackPanel>
+                                    <!-- PlayerID -->
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="PlayerID : "
+                                               FontSize="20"/>
+                                        <TextBlock Text="hello"
+                                               FontSize="24"/>
+                                    </StackPanel>
+                                    <!-- Age -->
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Age : "
+                                               FontSize="20"/>
+                                        <TextBlock Text="hello"
+                                               FontSize="24"/>
+                                    </StackPanel>
+                                    <!-- Height -->
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Height : "
+                                               FontSize="20"/>
+                                        <TextBlock Text="hello"
+                                               FontSize="24"/>
+                                    </StackPanel>
+                                    <!-- Weight -->
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Weight : "
+                                               FontSize="20"/>
+                                        <TextBlock Text="hello"
+                                               FontSize="24"/>
+                                    </StackPanel>
+                                    <!-- Gender -->
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Gender : "
+                                               FontSize="20"/>
+                                        <TextBlock Text="hello"
+                                               FontSize="24"/>
+                                    </StackPanel>
+                                    <!-- Role -->
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Role : "
+                                               FontSize="20"/>
+                                        <TextBlock Text="hello"
+                                               FontSize="24"/>
+                                    </StackPanel>
+
+                                </StackPanel>
+                            </Grid>
+    
+                        </Border>
+                        
+                        <!-- Cricket Scores listBox -->
+                        <ListBox x:Name="scoresListBox"
+                                 Style="{StaticResource baseListBox}"
+                                 Margin="20,0,80,20"
+                                 Height="300">
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem"
+                                       BasedOn="{StaticResource baseListBoxItem}">
+                                    
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                        </ListBox>
+                        
+                        <!-- Achivements Block -->
+                        <Border Height="300"
+                                Background="#272550"
+                                CornerRadius="10"
+                                Margin="20,0,80,20">
+
+                            <StackPanel Grid.Column="1"
+                                        Grid.ColumnSpan="2"
+                                        Margin="30">
+                                <!-- Achivements -->
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Achivements : "
+                                               FontSize="20"/>
+                                    <Viewbox>
+                                        <StackPanel Orientation="Vertical" Width="450">
+                                            <TextBlock FontSize="24" 
+                                                       TextWrapping="Wrap" 
+                                                       Text="asdkfaskdf sadjff djfksajdfk skjfksjfkkasdjfksakfdsak dfksj fdks fjsk fksjfkfsjkfjkjdfk safkjskffjskjfksajfd kasjfk" />
+                                        </StackPanel>
+                                    </Viewbox>
+                                </StackPanel>
+                                    <!-- Matches Won -->
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Matches own: "
+                                               FontSize="20"/>
+                                    <TextBlock Text="hello"
+                                               FontSize="24"/>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </Border>
+
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+
+
+            <!--<ContentControl x:Name="loginPage" Grid.Row="1" Grid.Column="2" 
                         Grid.ColumnSpan="4" Grid.RowSpan="4"/-->
     </Grid>
     </Border>

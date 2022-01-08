@@ -44,24 +44,40 @@ namespace PlayerInfoMS
         private void radioHome_Click(object sender, RoutedEventArgs e)
         {
             homePageScrollview.Visibility = Visibility.Visible;
+            tourPageScrollview.Visibility = Visibility.Collapsed;
+            teamsPageScrollview.Visibility = Visibility.Collapsed;
+            playersPageScrollview.Visibility = Visibility.Collapsed;
+            playerInfoScrollview.Visibility = Visibility.Collapsed;
         }
 
         //Navbar tournaments button actions
         private void radioTournaments_Click(object sender, RoutedEventArgs e)
         {
             homePageScrollview.Visibility = Visibility.Collapsed;
+            tourPageScrollview.Visibility = Visibility.Visible;
+            teamsPageScrollview.Visibility = Visibility.Collapsed;
+            playersPageScrollview.Visibility = Visibility.Collapsed;
+            playerInfoScrollview.Visibility = Visibility.Collapsed;
         }
 
         //Navbar teams button actions
         private void radioTeams_Click(object sender, RoutedEventArgs e)
         {
             homePageScrollview.Visibility = Visibility.Collapsed;
+            tourPageScrollview.Visibility = Visibility.Collapsed;
+            teamsPageScrollview.Visibility = Visibility.Visible;
+            playersPageScrollview.Visibility = Visibility.Collapsed;
+            playerInfoScrollview.Visibility = Visibility.Collapsed;
         }
 
-        //Navbar login button actions
+        //Navbar players button actions
         private void radioPlayers_Click(object sender, RoutedEventArgs e)
         {
             homePageScrollview.Visibility = Visibility.Collapsed;
+            tourPageScrollview.Visibility = Visibility.Collapsed;
+            teamsPageScrollview.Visibility = Visibility.Collapsed;
+            playersPageScrollview.Visibility = Visibility.Visible;
+            playerInfoScrollview.Visibility = Visibility.Collapsed;
         }
 
         private void homeLogin_Click(object sender, RoutedEventArgs e)
@@ -73,8 +89,14 @@ namespace PlayerInfoMS
             login.Show();
         }
 
+        //Main window loaded
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            homePageScrollview.Visibility = Visibility.Visible;
+            tourPageScrollview.Visibility = Visibility.Collapsed;
+            teamsPageScrollview.Visibility = Visibility.Collapsed;
+            playersPageScrollview.Visibility = Visibility.Collapsed;
+            playerInfoScrollview.Visibility = Visibility.Collapsed;
             FetchData empdata = new FetchData();
             emplist = empdata.employees();
 
@@ -89,9 +111,10 @@ namespace PlayerInfoMS
         //topCricketPlayers.SelectedIndex --> returns the selected index of a listboxitem
         private void ListBoxItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            FetchData empdata = new FetchData();
-            emplist2 = empdata.employees();
-            MessageBox.Show($"{emplist2.ElementAt(topCricketPlayers.SelectedIndex).Ssn}");
+            playerInfoScrollview.Visibility = Visibility.Visible;
+            homePageScrollview.Visibility = Visibility.Collapsed;
+            MessageBox.Show($"{emplist.ElementAt(topCricketPlayers.SelectedIndex).Ssn}");
+            playerInfoScrollview.DataContext = emplist;
         }
     }
 }
