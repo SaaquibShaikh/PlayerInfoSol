@@ -86,7 +86,7 @@ namespace PlayerInfoMS
             login.Owner = this;
             homePageScrollview.Visibility = Visibility.Collapsed;
 
-            login.Show();
+            login.ShowDialog();
         }
 
         //Main window loaded
@@ -115,6 +115,24 @@ namespace PlayerInfoMS
             homePageScrollview.Visibility = Visibility.Collapsed;
             MessageBox.Show($"{emplist.ElementAt(topCricketPlayers.SelectedIndex).Ssn}");
             playerInfoScrollview.DataContext = emplist;
+        }
+
+        //context menu view click
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            playerInfoScrollview.Visibility = Visibility.Visible;
+            homePageScrollview.Visibility = Visibility.Collapsed;
+            MessageBox.Show($"{emplist.ElementAt(topCricketPlayers.SelectedIndex).Ssn}");
+            playerInfoScrollview.DataContext = emplist;
+        }
+
+        //Add Button for adding cricket players
+        private void addCricketPlayer_Click(object sender, RoutedEventArgs e)
+        {
+            AdminWindow adminWindow = new AdminWindow();
+            adminWindow.Owner = this;
+            //adminWindow.playerInsScroll.Visibility = Visibility.Visible;
+            adminWindow.ShowDialog();
         }
     }
 }

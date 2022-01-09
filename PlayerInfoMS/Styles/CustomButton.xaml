@@ -104,4 +104,32 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <!-- Base button -->
+    <Style x:Key="addButton" TargetType="{x:Type Button}">
+        <Style.Setters>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="10">
+                            <Ellipse Width="20" Height="20">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="/Icons/add.png"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style.Setters>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#4E4D6D"/>
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
 </ResourceDictionary>

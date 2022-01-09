@@ -8,6 +8,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles/Colors.xaml"/>
                 <ResourceDictionary Source="Styles/CustomButton.xaml"/>
+                <ResourceDictionary Source="Styles/CustomContextMenu.xaml"/>
                 <ResourceDictionary Source="Styles/CustomListBox.xaml"/>
                 <ResourceDictionary Source="Styles/CustomTextBox.xaml"/>
                 <ResourceDictionary Source="Styles/MenuButtonTheme.xaml"/>

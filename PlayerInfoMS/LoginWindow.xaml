@@ -43,7 +43,7 @@
                        Grid.Row="1" 
                        Grid.Column="1"
                        Grid.ColumnSpan="3"
-                       Foreground="{DynamicResource ForegroundDarkBrush}"
+                       Foreground="#BDBDBD"
                        VerticalAlignment="Center"
                        FontSize="30"/>
             <TextBlock Text="Username"

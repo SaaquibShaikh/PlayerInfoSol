@@ -12,7 +12,8 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen" 
         Background="Transparent"
-        AllowsTransparency="True" Loaded="Window_Loaded">
+        AllowsTransparency="True" Loaded="Window_Loaded"
+        Icon="/Icons/icon_1024.png">
 
     <Border CornerRadius="20"
             Background="#272537">
@@ -175,11 +176,14 @@
                                 <DataTemplate>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="60"/>
                                             <ColumnDefinition/>
                                         </Grid.ColumnDefinitions>
-                                        <Image Source="/Icons/default.jpg"
-                                               Margin="5,0"/>
+                                        <Ellipse Width="50" Height="50" Grid.Column="0">
+                                            <Ellipse.Fill>
+                                                <ImageBrush ImageSource="/Icons/default.jpg" />
+                                            </Ellipse.Fill>
+                                        </Ellipse>
                                         <StackPanel Grid.Column="1">
                                             <TextBlock Text="{Binding Name}"/>
                                             <TextBlock Text="{Binding Ssn}"/>
@@ -188,13 +192,20 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                             <ListBox.ItemContainerStyle>
-                                    <Style TargetType="ListBoxItem"
+                                <Style TargetType="ListBoxItem"
                                         BasedOn="{StaticResource baseListBoxItem}">
-                                        <Setter Property="Margin" Value="7"/>
+                                    <Setter Property="Margin" Value="7"/>
                                     <EventSetter Event="MouseDoubleClick" 
                                                      Handler="ListBoxItem_MouseDoubleClick"/>
                                 </Style>
-                                </ListBox.ItemContainerStyle>
+                            </ListBox.ItemContainerStyle>
+                            <ListBox.ContextMenu>
+                                <ContextMenu Style="{StaticResource baseContextMenu}">
+                                    <MenuItem Header="View" Click="MenuItem_Click"/>
+                                    <MenuItem Header="Edit" />
+                                    <MenuItem Header="Delete" />
+                                </ContextMenu>
+                            </ListBox.ContextMenu>
                         </ListBox>
 
 
@@ -262,11 +273,14 @@
                                 <DataTemplate>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="60"/>
                                             <ColumnDefinition/>
                                         </Grid.ColumnDefinitions>
-                                        <Image Source="/Icons/default.jpg"
-                                               Margin="5,0"/>
+                                        <Ellipse Width="50" Height="50" Grid.Column="0">
+                                            <Ellipse.Fill>
+                                                <ImageBrush ImageSource="/Icons/default.jpg" />
+                                            </Ellipse.Fill>
+                                        </Ellipse>
                                         <StackPanel Grid.Column="1">
                                             <TextBlock Text="hello"/>
                                             <TextBlock Text="world"/>
@@ -395,7 +409,7 @@
                           Grid.Column="2"
                           Grid.ColumnSpan="6"
                           Grid.RowSpan="8"
-                          Name="playersPageScrollview" d:IsHidden="True">
+                          Name="playersPageScrollview">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -420,11 +434,19 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.RowSpan="9"
                                 Grid.ColumnSpan="8">
-
-                        <TextBlock Text="Cricket"
-                                   Foreground="white"
-                                   FontSize="24"
-                                   Margin="20,0,20,20"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Cricket"
+                                       Foreground="white"
+                                       FontSize="24"
+                                       Margin="20,0,20,20"/>
+                            <Button x:Name="addCricketPlayer"
+                                    Style="{StaticResource addButton}"
+                                    Margin="490,0,0,0"
+                                    VerticalAlignment="Top"
+                                    Height="35" Width="35"
+                                    Click="addCricketPlayer_Click">
+                            </Button>
+                        </StackPanel>
 
                         <!-- Cricket players list -->
                         <ListBox x:Name="cricketPlayersList"
@@ -484,7 +506,7 @@
                           Grid.RowSpan="8"
                           Name="playerInfoScrollview"
                           Foreground="White"
-                          Visibility="Visible">
+                          Visibility="Visible" d:IsHidden="True">
                 <Grid>
                     <StackPanel>
                         
@@ -499,9 +521,12 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <Image Source="/Icons/default.jpg"
-                                       Margin="10"
-                                       VerticalAlignment="Top"/>
+                                <Border CornerRadius="10"
+                                        Margin="10">
+                                    <Border.Background>
+                                        <ImageBrush Stretch="None" ImageSource="/Icons/default.jpg"/>
+                                    </Border.Background>
+                                </Border>
                                 <StackPanel Grid.Column="1"
                                             Grid.ColumnSpan="2">
                                     <!-- Name -->
@@ -608,6 +633,7 @@
                     </StackPanel>
                 </Grid>
             </ScrollViewer>
+            
 
 
             <!--<ContentControl x:Name="loginPage" Grid.Row="1" Grid.Column="2" 
