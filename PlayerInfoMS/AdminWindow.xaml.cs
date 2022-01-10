@@ -24,10 +24,5 @@ namespace PlayerInfoMS
             InitializeComponent();
         }
 
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            MainWindow mainWindow = Owner as MainWindow;
-            mainWindow.playersPageScrollview.Visibility = Visibility.Visible;
-        }
     }
 }

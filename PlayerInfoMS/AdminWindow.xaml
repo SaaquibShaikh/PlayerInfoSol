@@ -11,8 +11,7 @@
         WindowStyle="ToolWindow"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        Background="Transparent"
-        Closed="Window_Closed">
+        Background="Transparent">
     <Border Background="#1C1C1C">
         <Grid>
             <!-- Teams -->
