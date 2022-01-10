@@ -132,4 +132,16 @@
         </Style.Triggers>
 
     </Style>
+
+    <Style TargetType="{x:Type Button}" x:Key="doneButton" BasedOn="{StaticResource baseButton}">
+        <Setter Property="Background" Value="#4FA87C"/>
+        <Setter Property="Foreground" Value="white"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource WordBlueBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource ForegroundLightBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
 </ResourceDictionary>

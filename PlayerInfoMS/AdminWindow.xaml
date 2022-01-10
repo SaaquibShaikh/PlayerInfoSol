@@ -51,6 +51,16 @@
                                  FontSize="24"
                                  Foreground="#686868"/>
                     </StackPanel>
+
+                    <Button x:Name="doneTeams"
+                            Style="{StaticResource doneButton}"
+                            HorizontalAlignment="Center"
+                            Margin="250,20,0,20"
+                            Height="50"
+                            Width="100"
+                            Content="Done"
+                            FontSize="18"/>
+
                 </StackPanel>
             </ScrollViewer>
 
@@ -144,6 +154,17 @@
                                  FontSize="24"
                                  Foreground="#686868"/>
                     </StackPanel>
+
+                    <Button x:Name="donePlayers"
+                            Style="{StaticResource doneButton}"
+                            HorizontalAlignment="Center"
+                            Margin="250,20,0,20"
+                            Height="50"
+                            Width="100"
+                            Content="Done"
+                            FontSize="18"/>
+
+
                 </StackPanel>
             </ScrollViewer>
             
@@ -204,29 +225,228 @@
                                  FontSize="24"
                                  Foreground="#686868"/>
                     </StackPanel>
-                    
+
+                    <Button x:Name="doneTour"
+                            Style="{StaticResource doneButton}"
+                            HorizontalAlignment="Center"
+                            Margin="250,20,0,20"
+                            Height="50"
+                            Width="100"
+                            Content="Done"
+                            FontSize="18"/>
+
+
                 </StackPanel>
             </ScrollViewer>
 
-            <!-- Participation -->
-            <ScrollViewer x:Name="partInsScroll">
+            <!-- team selector -->
+            <ScrollViewer x:Name="teamSelectScroll" Visibility="Collapsed">
                 <StackPanel Margin="20">
-                    <TextBlock Text="tournamet name"
+                    <TextBlock Text="Select a team"
                                Foreground="#BDBDBD"
                                FontSize="30"
                                Margin="0,20,0,0"
                                HorizontalAlignment="Center"/>
+                    <ListBox x:Name="teamSelectLB"
+                             Foreground="#BDBDBD"
+                             Style="{StaticResource adminListBox}"
+                             FontSize="24"
+                             Height="300"
+                             Margin="20,10"
+                             ToolTip="Double click to select">
+                    </ListBox>
+                </StackPanel>
+            </ScrollViewer>
+
+            <!-- tournament selector -->
+            <ScrollViewer x:Name="tourSelectScroll" Visibility="Collapsed">
+                <StackPanel Margin="20">
+                    <TextBlock Text="Select a tournament"
+                               Foreground="#BDBDBD"
+                               FontSize="30"
+                               Margin="0,20,0,0"
+                               HorizontalAlignment="Center"/>
+                    <ListBox x:Name="tourSelectLB"
+                             Foreground="#BDBDBD"
+                             Style="{StaticResource adminListBox}"
+                             FontSize="24"
+                             Height="300"
+                             Margin="20,10"
+                             ToolTip="Double click to select">
+                    </ListBox>
+                </StackPanel>
+            </ScrollViewer>
+
+            <!-- Cricket Scores insert -->
+            <ScrollViewer x:Name="crickScoreInsScroll" Visibility="Collapsed">
+                <StackPanel Margin="20">
                     <StackPanel>
-                        <TextBlock Text="Team_Id:"
+                        <TextBlock Text="Matches played:"
                                    Foreground="#BDBDBD"
-                                   FontSize="24"
-                                   Margin="20,50,0,0"/>
-                        <TextBox x:Name="partTeamIdText"
+                                   FontSize="24"/>
+                        <TextBox x:Name="crickMatchesText"
                                  Style="{StaticResource baseTextBox}"
                                  Margin="20,5,150,0"       
                                  FontSize="24"
                                  Foreground="#686868"/>
                     </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Runs:"
+                                   Foreground="#BDBDBD"
+                                   FontSize="24"
+                                   Margin="0,20,0,0"/>
+                        <TextBox x:Name="runsText"
+                                 Style="{StaticResource baseTextBox}"
+                                 Margin="20,5,150,0"       
+                                 FontSize="24"
+                                 Foreground="#686868"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Wickets:"
+                                   Foreground="#BDBDBD"
+                                   FontSize="24"
+                                   Margin="0,20,0,0"/>
+                        <TextBox x:Name="wicketsText"
+                                 Style="{StaticResource baseTextBox}"
+                                 Margin="20,5,150,0"       
+                                 FontSize="24"
+                                 Foreground="#686868"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Maidens:"
+                                   Foreground="#BDBDBD"
+                                   FontSize="24"
+                                   Margin="0,20,0,0"/>
+                        <TextBox x:Name="maidensText"
+                                 Style="{StaticResource baseTextBox}"
+                                 Margin="20,5,150,0"       
+                                 FontSize="24"
+                                 Foreground="#686868"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Sixes:"
+                                   Foreground="#BDBDBD"
+                                   FontSize="24"
+                                   Margin="0,20,0,0"/>
+                        <TextBox x:Name="sixesText"
+                                 Style="{StaticResource baseTextBox}"
+                                 Margin="20,5,150,0"       
+                                 FontSize="24"
+                                 Foreground="#686868"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Fours:"
+                                   Foreground="#BDBDBD"
+                                   FontSize="24"
+                                   Margin="0,20,0,0"/>
+                        <TextBox x:Name="foursText"
+                                 Style="{StaticResource baseTextBox}"
+                                 Margin="20,5,150,0"       
+                                 FontSize="24"
+                                 Foreground="#686868"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="100's:"
+                                   Foreground="#BDBDBD"
+                                   FontSize="24"
+                                   Margin="0,20,0,0"/>
+                        <TextBox x:Name="centuriesText"
+                                 Style="{StaticResource baseTextBox}"
+                                 Margin="20,5,150,0"       
+                                 FontSize="24"
+                                 Foreground="#686868"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="50's"
+                                   Foreground="#BDBDBD"
+                                   FontSize="24"
+                                   Margin="0,20,0,0"/>
+                        <TextBox x:Name="fiftiesText"
+                                 Style="{StaticResource baseTextBox}"
+                                 Margin="20,5,150,0"       
+                                 FontSize="24"
+                                 Foreground="#686868"/>
+                    </StackPanel>
+
+                    <Button x:Name="doneCrickScore"
+                            Style="{StaticResource doneButton}"
+                            HorizontalAlignment="Center"
+                            Margin="250,20,0,20"
+                            Height="50"
+                            Width="100"
+                            Content="Done"
+                            FontSize="18"/>
+
+                </StackPanel>
+            </ScrollViewer>
+
+            <!-- Football Scores insert -->
+            <ScrollViewer x:Name="footScoreInsScroll" Visibility="Collapsed">
+                <StackPanel Margin="20">
+                    <StackPanel>
+                        <TextBlock Text="Matches played:"
+                                   Foreground="#BDBDBD"
+                                   FontSize="24"/>
+                        <TextBox x:Name="footMatchesText"
+                                 Style="{StaticResource baseTextBox}"
+                                 Margin="20,5,150,0"       
+                                 FontSize="24"
+                                 Foreground="#686868"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Goals:"
+                                   Foreground="#BDBDBD"
+                                   FontSize="24"
+                                   Margin="0,20,0,0"/>
+                        <TextBox x:Name="goalsText"
+                                 Style="{StaticResource baseTextBox}"
+                                 Margin="20,5,150,0"       
+                                 FontSize="24"
+                                 Foreground="#686868"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Saves:"
+                                   Foreground="#BDBDBD"
+                                   FontSize="24"
+                                   Margin="0,20,0,0"/>
+                        <TextBox x:Name="savesText"
+                                 Style="{StaticResource baseTextBox}"
+                                 Margin="20,5,150,0"       
+                                 FontSize="24"
+                                 Foreground="#686868"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Red cards:"
+                                   Foreground="#BDBDBD"
+                                   FontSize="24"
+                                   Margin="0,20,0,0"/>
+                        <TextBox x:Name="redCardsText"
+                                 Style="{StaticResource baseTextBox}"
+                                 Margin="20,5,150,0"       
+                                 FontSize="24"
+                                 Foreground="#686868"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Yellow cards:"
+                                   Foreground="#BDBDBD"
+                                   FontSize="24"
+                                   Margin="0,20,0,0"/>
+                        <TextBox x:Name="yellowCardsText"
+                                 Style="{StaticResource baseTextBox}"
+                                 Margin="20,5,150,0"       
+                                 FontSize="24"
+                                 Foreground="#686868"/>
+                    </StackPanel>
+                    
+                    <Button x:Name="doneFootScore"
+                            Style="{StaticResource doneButton}"
+                            HorizontalAlignment="Center"
+                            Margin="250,20,0,20"
+                            Height="50"
+                            Width="100"
+                            Content="Done"
+                            FontSize="18"/>
+
                 </StackPanel>
             </ScrollViewer>
 
