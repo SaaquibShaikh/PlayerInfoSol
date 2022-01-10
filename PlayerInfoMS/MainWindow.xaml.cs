@@ -24,6 +24,7 @@ namespace PlayerInfoMS
     {
         List<Employee> emplist = new List<Employee>();
         List<Employee> emplist2 = new List<Employee>();
+        bool isCrikPlayer = false, isFootPlayer = false;
 
         public MainWindow()
         {
@@ -109,8 +110,10 @@ namespace PlayerInfoMS
         }
 
         //topCricketPlayers.SelectedIndex --> returns the selected index of a listboxitem
+        //MessageBox.Show($"{emplist.ElementAt(topCricketPlayers.SelectedIndex).Ssn}");
         private void ListBoxItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            isFootPlayer = true;
             playerInfoScrollview.Visibility = Visibility.Visible;
             homePageScrollview.Visibility = Visibility.Collapsed;
             MessageBox.Show($"{emplist.ElementAt(topCricketPlayers.SelectedIndex).Ssn}");
@@ -126,13 +129,87 @@ namespace PlayerInfoMS
             playerInfoScrollview.DataContext = emplist;
         }
 
-        //Add Button for adding cricket players
+        //Add buttons in Players page
         private void addCricketPlayer_Click(object sender, RoutedEventArgs e)
         {
             AdminWindow adminWindow = new AdminWindow();
             adminWindow.Owner = this;
-            //adminWindow.playerInsScroll.Visibility = Visibility.Visible;
+            adminWindow.teamSelectScroll.Visibility = Visibility.Visible;
             adminWindow.ShowDialog();
         }
+
+        private void addFootballPlayer_Click(object sender, RoutedEventArgs e)
+        {
+            AdminWindow adminWindow = new AdminWindow();
+            adminWindow.Owner = this;
+            adminWindow.teamSelectScroll.Visibility = Visibility.Visible;
+            adminWindow.ShowDialog();
+        }
+
+        //Add buttons in Teams page
+        private void addCricketTeam_Click(object sender, RoutedEventArgs e)
+        {
+            AdminWindow adminWindow = new AdminWindow();
+            adminWindow.Owner = this;
+            adminWindow.teamInsScroll.Visibility = Visibility.Visible;
+            adminWindow.ShowDialog();
+        }
+
+        private void addFootballTeam_Click(object sender, RoutedEventArgs e)
+        {
+            AdminWindow adminWindow = new AdminWindow();
+            adminWindow.Owner = this;
+            adminWindow.teamInsScroll.Visibility = Visibility.Visible;
+            adminWindow.ShowDialog();
+        }
+
+        //Add buttons in Tournament page
+        private void addCricketTour_Click(object sender, RoutedEventArgs e)
+        {
+            AdminWindow adminWindow = new AdminWindow();
+            adminWindow.Owner = this;
+            adminWindow.tourInsScroll.Visibility = Visibility.Visible;
+            adminWindow.ShowDialog();
+        }
+
+        private void addFootballTour_Click(object sender, RoutedEventArgs e)
+        {
+            AdminWindow adminWindow = new AdminWindow();
+            adminWindow.Owner = this;
+            adminWindow.tourInsScroll.Visibility = Visibility.Visible;
+            adminWindow.ShowDialog();
+        }
+
+        //Cricket player list box item select event --> opens the cricket player info page
+        private void crickPlayerLBI_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            isCrikPlayer = true;
+        }
+
+        //Football player list box item select event --> opens the football player info page
+        private void footPlayerLBI_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            isFootPlayer = true;
+        }
+
+        //Add buttons in Player Info page
+        private void addScore_Click(object sender, RoutedEventArgs e)
+        {
+            AdminWindow adminWindow = new AdminWindow();
+            adminWindow.Owner = this;
+            if (isCrikPlayer)
+            {
+                adminWindow.crickScoreInsScroll.Visibility = Visibility.Visible;
+                adminWindow.ShowDialog();
+            }
+            else
+            if (isFootPlayer)
+            {
+                adminWindow.footScoreInsScroll.Visibility = Visibility.Visible;
+                adminWindow.ShowDialog();
+            }
+        }
+
+        
     }
 }

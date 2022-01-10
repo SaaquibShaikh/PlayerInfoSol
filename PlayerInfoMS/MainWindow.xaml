@@ -265,10 +265,11 @@
                                        FontSize="24"
                                        Margin="0,0,0,20"/>
                                 <Button x:Name="addCricketTour"
-                                    Style="{StaticResource addButton}"
-                                    Margin="513,0,0,0"
-                                    VerticalAlignment="Top"
-                                    Height="35" Width="35">
+                                        Style="{StaticResource addButton}"
+                                        Margin="513,0,0,0"
+                                        VerticalAlignment="Top"
+                                        Height="35" Width="35"
+                                        Click="addCricketTour_Click">
                                 </Button>
                             </StackPanel>
 
@@ -318,7 +319,8 @@
                                     Style="{StaticResource addButton}"
                                     VerticalAlignment="Top"
                                     Margin="500,0,0,0"
-                                    Height="35" Width="35">
+                                    Height="35" Width="35"
+                                    Click="addFootballTour_Click">
                             </Button>
                         </StackPanel>
 
@@ -376,7 +378,8 @@
                                     Style="{StaticResource addButton}"
                                     Margin="513,0,0,0"
                                     VerticalAlignment="Top"
-                                    Height="35" Width="35">
+                                    Height="35" Width="35"
+                                    Click="addCricketTeam_Click">
                             </Button>
                         </StackPanel>
 
@@ -423,7 +426,8 @@
                                     Style="{StaticResource addButton}"
                                     VerticalAlignment="Top"
                                     Margin="500,0,0,0"
-                                    Height="35" Width="35">
+                                    Height="35" Width="35"
+                                    Click="addFootballTeam_Click">
                             </Button>
                         </StackPanel>
 
@@ -509,10 +513,10 @@
                             </ListBox.ItemTemplate>
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem"
-                                        BasedOn="{StaticResource baseListBoxItem}">
+                                       BasedOn="{StaticResource baseListBoxItem}">
                                     <Setter Property="Margin" Value="7"/>
-                                    <EventSetter Event="MouseDoubleClick" 
-                                                     Handler="ListBoxItem_MouseDoubleClick"/>
+                                    <EventSetter Event="MouseDoubleClick"
+                                                 Handler="crickPlayerLBI_MouseDoubleClick"/>
                                 </Style>
                             </ListBox.ItemContainerStyle>
                         </ListBox>
@@ -528,17 +532,41 @@
                                     Style="{StaticResource addButton}"
                                     VerticalAlignment="Top"
                                     Margin="500,0,0,0"
-                                    Height="35" Width="35">
+                                    Height="35" Width="35"
+                                    Click="addFootballPlayer_Click">
                             </Button>
                         </StackPanel>
 
                         <!-- Football players list -->
-                        <ListBox Height="200"
+                        <ListBox x:Name="footballPlayersList"
+                                 Height="200"
                                  Margin="20 0 80 20"
                                  Style="{StaticResource baseListBox}"
                                  Foreground="white">
-                            <ListBoxItem Style="{StaticResource baseListBoxItem}">hello</ListBoxItem>
-                            <ListBoxItem Style="{StaticResource baseListBoxItem}">mello</ListBoxItem>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="/Icons/default.jpg"
+                                               Margin="5,0"/>
+                                        <StackPanel Grid.Column="1">
+                                            <TextBlock Text="hello"/>
+                                            <TextBlock Text="world"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem"
+                                       BasedOn="{StaticResource baseListBoxItem}">
+                                    <Setter Property="Margin" Value="7"/>
+                                    <EventSetter Event="MouseDoubleClick"
+                                                 Handler="footPlayerLBI_MouseDoubleClick"/>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
                         </ListBox>
 
                     </StackPanel>
@@ -640,7 +668,8 @@
                                     Style="{StaticResource addButton}"
                                     Margin="515,0,0,0"
                                     VerticalAlignment="Top"
-                                    Height="35" Width="35">
+                                    Height="35" Width="35"
+                                    Click="addScore_Click">
                             </Button>
                         </StackPanel>
 
