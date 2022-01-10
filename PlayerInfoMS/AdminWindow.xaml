@@ -459,7 +459,9 @@
 
                 </StackPanel>
             </ScrollViewer>
-
+            
+            <!-- Achivements insert -->
+            
         </Grid>
     </Border>
 </Window>
