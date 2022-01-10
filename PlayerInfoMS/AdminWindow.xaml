@@ -404,6 +404,17 @@
                                  Foreground="#686868"/>
                     </StackPanel>
                     <StackPanel>
+                        <TextBlock Text="Assits:"
+                                   Foreground="#BDBDBD"
+                                   FontSize="24"
+                                   Margin="0,20,0,0"/>
+                        <TextBox x:Name="assistText"
+                                 Style="{StaticResource baseTextBox}"
+                                 Margin="20,5,150,0"       
+                                 FontSize="24"
+                                 Foreground="#686868"/>
+                    </StackPanel>
+                    <StackPanel>
                         <TextBlock Text="Saves:"
                                    Foreground="#BDBDBD"
                                    FontSize="24"
