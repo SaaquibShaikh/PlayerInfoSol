@@ -28,6 +28,7 @@ namespace PlayerInfoMS
         private void doneTeams_Click(object sender, RoutedEventArgs e)
         {
             PutData insTeam = new PutData();
+            
             string id = teamIdText.Text, name = teamNameText.Text, img = teamIcoText.Text;
             
             if(id == "")
