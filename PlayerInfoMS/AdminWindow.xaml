@@ -58,7 +58,8 @@
                             Height="50"
                             Width="100"
                             Content="Done"
-                            FontSize="18"/>
+                            FontSize="18"
+                            Click="doneTeams_Click"/>
 
                 </StackPanel>
             </ScrollViewer>

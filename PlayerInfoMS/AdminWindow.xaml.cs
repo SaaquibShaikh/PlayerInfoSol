@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PlayerInfoMS.DataBaseAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,5 +25,22 @@ namespace PlayerInfoMS
             InitializeComponent();
         }
 
+        private void doneTeams_Click(object sender, RoutedEventArgs e)
+        {
+            PutData insTeam = new PutData();
+            string id = teamIdText.Text, name = teamNameText.Text, img = teamIcoText.Text;
+            
+            if(id == "")
+                id = null;
+
+            if ( name == "")
+               name = null;
+
+            if ( img == "")
+                img = "Icons/default.jpg";
+
+
+            insTeam.insertCrickTeams(id, name, img);
+        }
     }
 }

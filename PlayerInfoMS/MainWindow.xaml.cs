@@ -209,7 +209,6 @@ namespace PlayerInfoMS
                 adminWindow.ShowDialog();
             }
         }
-
-        
+  
     }
 }
