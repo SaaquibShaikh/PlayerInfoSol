@@ -85,6 +85,7 @@
     </Compile>
     <Compile Include="Cricket\CrickPlayer.cs" />
     <Compile Include="Cricket\CrickTeams.cs" />
+    <Compile Include="Cricket\CrickTour.cs" />
     <Compile Include="Cricket\Employee.cs" />
     <Compile Include="DataBaseAccess\ConnStringHelper.cs" />
     <Compile Include="DataBaseAccess\FetchData.cs" />

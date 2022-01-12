@@ -269,7 +269,8 @@
                                         Margin="513,0,0,0"
                                         VerticalAlignment="Top"
                                         Height="35" Width="35"
-                                        Click="addCricketTour_Click">
+                                        Click="addCricketTour_Click"
+                                        Visibility="Collapsed">
                                 </Button>
                             </StackPanel>
 
@@ -286,14 +287,15 @@
                                             <ColumnDefinition Width="60"/>
                                             <ColumnDefinition/>
                                         </Grid.ColumnDefinitions>
-                                        <Ellipse Width="50" Height="50" Grid.Column="0">
-                                            <Ellipse.Fill>
-                                                <ImageBrush ImageSource="/Icons/default.jpg" />
-                                            </Ellipse.Fill>
-                                        </Ellipse>
                                         <StackPanel Grid.Column="1">
-                                            <TextBlock Text="hello"/>
-                                            <TextBlock Text="world"/>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding tname}"
+                                                           FontSize="20"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Location : "/>
+                                                <TextBlock Text="{Binding t_location}"/>
+                                            </StackPanel>
                                         </StackPanel>
                                     </Grid>
                                 </DataTemplate>
@@ -320,7 +322,8 @@
                                     VerticalAlignment="Top"
                                     Margin="500,0,0,0"
                                     Height="35" Width="35"
-                                    Click="addFootballTour_Click">
+                                    Click="addFootballTour_Click"
+                                    Visibility="Collapsed">
                             </Button>
                         </StackPanel>
 
@@ -379,7 +382,8 @@
                                     Margin="513,0,0,0"
                                     VerticalAlignment="Top"
                                     Height="35" Width="35"
-                                    Click="addCricketTeam_Click">
+                                    Click="addCricketTeam_Click"
+                                    Visibility="Collapsed">
                             </Button>
                         </StackPanel>
 
@@ -427,7 +431,8 @@
                                     VerticalAlignment="Top"
                                     Margin="500,0,0,0"
                                     Height="35" Width="35"
-                                    Click="addFootballTeam_Click">
+                                    Click="addFootballTeam_Click"
+                                    Visibility="Collapsed">
                             </Button>
                         </StackPanel>
 
@@ -485,7 +490,8 @@
                                     Margin="513,0,0,0"
                                     VerticalAlignment="Top"
                                     Height="35" Width="35"
-                                    Click="addCricketPlayer_Click">
+                                    Click="addCricketPlayer_Click"
+                                    Visibility="Collapsed">
                             </Button>
                         </StackPanel>
 
@@ -502,11 +508,14 @@
                                             <ColumnDefinition Width="50"/>
                                             <ColumnDefinition/>
                                         </Grid.ColumnDefinitions>
-                                        <Image Source="/Icons/default.jpg"
-                                               Margin="5,0"/>
-                                        <StackPanel Grid.Column="1">
-                                            <TextBlock Text="hello"/>
-                                            <TextBlock Text="world"/>
+                                        <Ellipse Width="50" Height="50" Grid.Column="0">
+                                            <Ellipse.Fill>
+                                                <ImageBrush ImageSource="{Binding img_path}" />
+                                            </Ellipse.Fill>
+                                        </Ellipse>
+                                        <StackPanel Grid.Column="1" Margin="10">
+                                            <TextBlock Text="{Binding player_id}"/>
+                                            <TextBlock Text="{Binding name}"/>
                                         </StackPanel>
                                     </Grid>
                                 </DataTemplate>
@@ -533,7 +542,8 @@
                                     VerticalAlignment="Top"
                                     Margin="500,0,0,0"
                                     Height="35" Width="35"
-                                    Click="addFootballPlayer_Click">
+                                    Click="addFootballPlayer_Click"
+                                    Visibility="Collapsed">
                             </Button>
                         </StackPanel>
 
@@ -669,7 +679,8 @@
                                     Margin="515,0,0,0"
                                     VerticalAlignment="Top"
                                     Height="35" Width="35"
-                                    Click="addScore_Click">
+                                    Click="addScore_Click"
+                                    Visibility="Collapsed">
                             </Button>
                         </StackPanel>
 
@@ -696,7 +707,8 @@
                                     Style="{StaticResource addButton}"
                                     Margin="450,0,0,0"
                                     VerticalAlignment="Top"
-                                    Height="35" Width="35">
+                                    Height="35" Width="35"
+                                    Visibility="Collapsed">
                             </Button>
                         </StackPanel>
 

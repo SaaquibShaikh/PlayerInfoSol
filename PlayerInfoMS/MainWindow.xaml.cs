@@ -24,11 +24,45 @@ namespace PlayerInfoMS
     {
         List<Employee> emplist = new List<Employee>();
         List<Employee> emplist2 = new List<Employee>();
+
+        FetchData fetchData = new FetchData();
+        List<CrickPlayer> crickPlayers = new List<CrickPlayer>();
+        List<CrickTour> crickTours = new List<CrickTour>();
+
+
+
         bool isCrikPlayer = false, isFootPlayer = false;
+        public bool isAdmin = false;
 
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public void adminPrevilege()
+        {
+            if(isAdmin == true)
+            {
+                addAchivement.Visibility = Visibility.Visible;
+                addCricketPlayer.Visibility = Visibility.Visible;
+                addCricketTeam.Visibility = Visibility.Visible;
+                addCricketTour.Visibility = Visibility.Visible;
+                addFootballPlayer.Visibility = Visibility.Visible;
+                addFootballTeam.Visibility = Visibility.Visible;
+                addFootballTour.Visibility = Visibility.Visible;
+                addScore.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                addAchivement.Visibility = Visibility.Collapsed;
+                addCricketPlayer.Visibility = Visibility.Collapsed;
+                addCricketTeam.Visibility = Visibility.Collapsed;
+                addCricketTour.Visibility = Visibility.Collapsed;
+                addFootballPlayer.Visibility = Visibility.Collapsed;
+                addFootballTeam.Visibility = Visibility.Collapsed;
+                addFootballTour.Visibility = Visibility.Collapsed;
+                addScore.Visibility = Visibility.Collapsed;
+            }
         }
 
         //Exit on window close button
@@ -59,6 +93,9 @@ namespace PlayerInfoMS
             teamsPageScrollview.Visibility = Visibility.Collapsed;
             playersPageScrollview.Visibility = Visibility.Collapsed;
             playerInfoScrollview.Visibility = Visibility.Collapsed;
+
+            crickTours = fetchData.getCirckTour();
+            cricketTourList.ItemsSource = crickTours;
         }
 
         //Navbar teams button actions
@@ -79,6 +116,9 @@ namespace PlayerInfoMS
             teamsPageScrollview.Visibility = Visibility.Collapsed;
             playersPageScrollview.Visibility = Visibility.Visible;
             playerInfoScrollview.Visibility = Visibility.Collapsed;
+
+            crickPlayers = fetchData.getCirckPlayer().ToList();
+            cricketPlayersList.ItemsSource = crickPlayers;
         }
 
         private void homeLogin_Click(object sender, RoutedEventArgs e)
@@ -107,6 +147,25 @@ namespace PlayerInfoMS
         private void homeLogout_Click(object sender, RoutedEventArgs e)
         {
             //Todo Remove the administrator privileges from currently logged in user
+            isAdmin = false;
+            adminPrevilege();
+
+            MessageBoxResult result = MessageBox.Show("Do you want to logout?", "My App", MessageBoxButton.YesNo);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    isAdmin = false;
+                    adminPrevilege();
+                    homeLogin.Visibility = Visibility.Visible;
+                    homeLogout.Visibility = Visibility.Collapsed;
+                    break;
+                case MessageBoxResult.No:
+                    isAdmin = true;
+                    adminPrevilege();
+                    break;
+            }
+
+            
         }
 
         //topCricketPlayers.SelectedIndex --> returns the selected index of a listboxitem

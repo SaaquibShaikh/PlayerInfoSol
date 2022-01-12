@@ -8,6 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace PlayerInfoMS.DataBaseAccess
 {
@@ -29,6 +30,25 @@ namespace PlayerInfoMS.DataBaseAccess
             {
                 
                     return connection.Query<Users>("select * from administrators").ToList();
+            }
+        }
+
+        public List<CrickPlayer> getCirckPlayer()
+        {
+            using (IDbConnection connection = new MySqlConnection(ConnStringHelper.getConnString("CricketDB")))
+            {
+                return connection.Query<CrickPlayer>("call select_player").ToList(); 
+            }
+        }
+
+        public List<CrickTour> getCirckTour()
+        {
+            using (IDbConnection connection = new MySqlConnection(ConnStringHelper.getConnString("CricketDB")))
+            {
+                
+                
+                return connection.Query<CrickTour>("call select_tournament").ToList();
+                
             }
         }
     }

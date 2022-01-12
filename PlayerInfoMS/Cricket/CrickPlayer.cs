@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace PlayerInfoMS.Cricket
 {
-    class CrickPlayer
+    public class CrickPlayer
     {
         public string player_id { get; set; }
         public string team_id { get; set; }
         public string img_path { get; set; }
-        public string fname { get; set; }
-        public string lname { get; set; }
+        public string name { get; set; }
         public int age { get; set; }
         public float height { get; set; }
         public float weight { get; set; }

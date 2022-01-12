@@ -46,6 +46,7 @@ namespace PlayerInfoMS
         //login button click event
         private void loginBT_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow mainWindow = Owner as MainWindow;
             if (userList.Exists(x => x.userName == usernameTB.Text) == false)
                 MessageBox.Show("Username doesn't exist");
             else
@@ -54,14 +55,17 @@ namespace PlayerInfoMS
                 //Todo Handover the administrator privileges
                 Close();
                 MessageBox.Show($"logged in as {usernameTB.Text}");
-                MainWindow mainWindow = Owner as MainWindow;
                 mainWindow.homePageScrollview.Visibility = Visibility.Visible;
                 mainWindow.homeLogin.Visibility = Visibility.Collapsed;
                 mainWindow.homeLogout.Visibility = Visibility.Visible;
             }    
             else
                 MessageBox.Show("Incorrect password");
-            
+
+
+            mainWindow.isAdmin = true;
+
+            mainWindow.adminPrevilege();
         }
     }
 }
