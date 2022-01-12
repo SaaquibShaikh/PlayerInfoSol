@@ -150,7 +150,7 @@ namespace PlayerInfoMS
             isAdmin = false;
             adminPrevilege();
 
-            MessageBoxResult result = MessageBox.Show("Do you want to logout?", "My App", MessageBoxButton.YesNo);
+            MessageBoxResult result = MessageBox.Show("Do you want to logout?", "", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
             switch (result)
             {
                 case MessageBoxResult.Yes:
