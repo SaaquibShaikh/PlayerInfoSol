@@ -20,6 +20,8 @@ namespace PlayerInfoMS
     /// </summary>
     public partial class AdminWindow : Window
     {
+
+        
         public AdminWindow()
         {
             InitializeComponent();
@@ -42,6 +44,12 @@ namespace PlayerInfoMS
 
 
             insTeam.insertCrickTeams(id, name, img);
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MainWindow mainWindow = Owner as MainWindow;
+            mainWindow.updateBinding();
         }
     }
 }

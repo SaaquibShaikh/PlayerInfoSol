@@ -51,5 +51,16 @@ namespace PlayerInfoMS.DataBaseAccess
                 
             }
         }
+
+        public List<CrickTeams> getCirckTeam()
+        {
+            using (IDbConnection connection = new MySqlConnection(ConnStringHelper.getConnString("CricketDB")))
+            {
+
+
+                return connection.Query<CrickTeams>("call select_teams").ToList();
+
+            }
+        }
     }
 }

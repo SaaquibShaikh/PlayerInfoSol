@@ -400,11 +400,13 @@
                                             <ColumnDefinition Width="50"/>
                                             <ColumnDefinition/>
                                         </Grid.ColumnDefinitions>
-                                        <Image Source="/Icons/default.jpg"
-                                               Margin="5,0"/>
-                                        <StackPanel Grid.Column="1">
-                                            <TextBlock Text="hello"/>
-                                            <TextBlock Text="world"/>
+                                        <Ellipse Width="50" Height="50" Grid.Column="0">
+                                            <Ellipse.Fill>
+                                                <ImageBrush ImageSource="{Binding team_img_path}" />
+                                            </Ellipse.Fill>
+                                        </Ellipse>
+                                        <StackPanel Grid.Column="1" Margin="10">
+                                            <TextBlock Text="{Binding team_name}"/>
                                         </StackPanel>
                                     </Grid>
                                 </DataTemplate>

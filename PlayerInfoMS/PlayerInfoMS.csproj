@@ -88,6 +88,7 @@
     <Compile Include="Cricket\CrickTour.cs" />
     <Compile Include="Cricket\Employee.cs" />
     <Compile Include="DataBaseAccess\ConnStringHelper.cs" />
+    <Compile Include="DataBaseAccess\DeleteData.cs" />
     <Compile Include="DataBaseAccess\FetchData.cs" />
     <Compile Include="DataBaseAccess\PutData.cs" />
     <Compile Include="LoginWindow.xaml.cs">

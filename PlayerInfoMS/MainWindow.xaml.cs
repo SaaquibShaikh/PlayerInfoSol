@@ -28,6 +28,7 @@ namespace PlayerInfoMS
         FetchData fetchData = new FetchData();
         List<CrickPlayer> crickPlayers = new List<CrickPlayer>();
         List<CrickTour> crickTours = new List<CrickTour>();
+        List<CrickTeams> crickTeams = new List<CrickTeams>();
 
 
 
@@ -65,6 +66,21 @@ namespace PlayerInfoMS
             }
         }
 
+        public void updateBinding()
+        {
+            crickTours = fetchData.getCirckTour();
+            cricketTourList.ItemsSource = crickTours;
+
+            crickTeams = fetchData.getCirckTeam();
+            cricketTeamsList.ItemsSource = crickTeams;
+
+            crickPlayers = fetchData.getCirckPlayer().ToList();
+            cricketPlayersList.ItemsSource = crickPlayers;
+
+            emplist = fetchData.employees();
+            topCricketPlayers.ItemsSource = emplist;
+        }
+
         //Exit on window close button
         private void windowClose_Click(object sender, RoutedEventArgs e)
         {
@@ -83,6 +99,8 @@ namespace PlayerInfoMS
             teamsPageScrollview.Visibility = Visibility.Collapsed;
             playersPageScrollview.Visibility = Visibility.Collapsed;
             playerInfoScrollview.Visibility = Visibility.Collapsed;
+
+            updateBinding();
         }
 
         //Navbar tournaments button actions
@@ -94,8 +112,7 @@ namespace PlayerInfoMS
             playersPageScrollview.Visibility = Visibility.Collapsed;
             playerInfoScrollview.Visibility = Visibility.Collapsed;
 
-            crickTours = fetchData.getCirckTour();
-            cricketTourList.ItemsSource = crickTours;
+            updateBinding();
         }
 
         //Navbar teams button actions
@@ -106,6 +123,8 @@ namespace PlayerInfoMS
             teamsPageScrollview.Visibility = Visibility.Visible;
             playersPageScrollview.Visibility = Visibility.Collapsed;
             playerInfoScrollview.Visibility = Visibility.Collapsed;
+
+            updateBinding();
         }
 
         //Navbar players button actions
@@ -117,8 +136,7 @@ namespace PlayerInfoMS
             playersPageScrollview.Visibility = Visibility.Visible;
             playerInfoScrollview.Visibility = Visibility.Collapsed;
 
-            crickPlayers = fetchData.getCirckPlayer().ToList();
-            cricketPlayersList.ItemsSource = crickPlayers;
+            updateBinding();
         }
 
         private void homeLogin_Click(object sender, RoutedEventArgs e)
