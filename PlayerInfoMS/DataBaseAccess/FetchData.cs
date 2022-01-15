@@ -14,15 +14,7 @@ namespace PlayerInfoMS.DataBaseAccess
 {
     public class FetchData
     {
-        public List<Employee> employees()
-        {
-            using(IDbConnection connection = new MySqlConnection(ConnStringHelper.getConnString("CompanyDB")))
-            {
-                var output = connection.Query<Employee>("select * from employee").ToList();
-                return output;
-            }
-        }
-
+      
         //returns the list of Administators
         public List<Users> getUsers()
         {
@@ -58,7 +50,18 @@ namespace PlayerInfoMS.DataBaseAccess
             {
 
 
-                return connection.Query<CrickTeams>("call select_teams").ToList();
+                return connection.Query<CrickTeams>("call select_team").ToList();
+
+            }
+        }
+
+        public List<CrickTop10> getCirckTop10()
+        {
+            using (IDbConnection connection = new MySqlConnection(ConnStringHelper.getConnString("CricketDB")))
+            {
+
+
+                return connection.Query<CrickTop10>("call select_top10").ToList();
 
             }
         }

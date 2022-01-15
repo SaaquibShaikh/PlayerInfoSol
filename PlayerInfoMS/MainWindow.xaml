@@ -13,7 +13,8 @@
         WindowStartupLocation="CenterScreen" 
         Background="Transparent"
         AllowsTransparency="True" Loaded="Window_Loaded"
-        Icon="/Icons/icon_1024.png">
+        Icon="/Icons/icon_1024.png"
+        FontFamily="Fonts/#Poppins">
 
     <Border CornerRadius="20"
             Background="#272537">
@@ -65,11 +66,13 @@
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Center" 
                    FontSize="28"
-                   Foreground="White"/>
+                   Foreground="White"
+                        Margin="0,10,0,0"/>
         
         <StackPanel Grid.Row="1" 
                     Grid.RowSpan="8" 
-                    Grid.ColumnSpan="2">
+                    Grid.ColumnSpan="2"
+                    Margin="0,20,0,0">
                 
                
                 <!-- Nav Home button -->
@@ -78,7 +81,8 @@
                              FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
                              x:Name="radioHome"
-                             Click="radioHome_Click"/>
+                             Click="radioHome_Click"
+                             IsChecked="True"/>
                 
                 
                 <RadioButton Content="Tournaments"
@@ -171,7 +175,8 @@
                                  Height="400"
                                  Margin="20 0 80 20"
                                  Style="{StaticResource baseListBox}"
-                                 Foreground="white">
+                                 Foreground="white"
+                                 FontSize="14">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <Grid>
@@ -181,12 +186,15 @@
                                         </Grid.ColumnDefinitions>
                                         <Ellipse Width="50" Height="50" Grid.Column="0">
                                             <Ellipse.Fill>
-                                                <ImageBrush ImageSource="/Icons/default.jpg" />
+                                                <ImageBrush ImageSource="{Binding img_path}" />
                                             </Ellipse.Fill>
                                         </Ellipse>
-                                        <StackPanel Grid.Column="1">
-                                            <TextBlock Text="{Binding Name}"/>
-                                            <TextBlock Text="{Binding Ssn}"/>
+                                        <StackPanel Grid.Column="1" Margin="10">
+                                            <TextBlock Text="{Binding name}"/>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Runs: "/>
+                                                <TextBlock Text="{Binding runs}"/>
+                                            </StackPanel>
                                         </StackPanel>
                                     </Grid>
                                 </DataTemplate>
@@ -232,7 +240,7 @@
                           Grid.Column="2"
                           Grid.ColumnSpan="6"
                           Grid.RowSpan="8"
-                          Name="tourPageScrollview" d:IsHidden="True">
+                          Name="tourPageScrollview">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -266,7 +274,7 @@
                                        Margin="0,0,0,20"/>
                                 <Button x:Name="addCricketTour"
                                         Style="{StaticResource addButton}"
-                                        Margin="513,0,0,0"
+                                        Margin="500,0,0,0"
                                         VerticalAlignment="Top"
                                         Height="35" Width="35"
                                         Click="addCricketTour_Click"
@@ -320,7 +328,7 @@
                             <Button x:Name="addFootballTour"
                                     Style="{StaticResource addButton}"
                                     VerticalAlignment="Top"
-                                    Margin="500,0,0,0"
+                                    Margin="488,0,0,0"
                                     Height="35" Width="35"
                                     Click="addFootballTour_Click"
                                     Visibility="Collapsed">
@@ -379,7 +387,7 @@
                                        Margin="0,0,0,20"/>
                             <Button x:Name="addCricketTeam"
                                     Style="{StaticResource addButton}"
-                                    Margin="513,0,0,0"
+                                    Margin="500,0,0,0"
                                     VerticalAlignment="Top"
                                     Height="35" Width="35"
                                     Click="addCricketTeam_Click"
@@ -431,7 +439,7 @@
                             <Button x:Name="addFootballTeam"
                                     Style="{StaticResource addButton}"
                                     VerticalAlignment="Top"
-                                    Margin="500,0,0,0"
+                                    Margin="488,0,0,0"
                                     Height="35" Width="35"
                                     Click="addFootballTeam_Click"
                                     Visibility="Collapsed">
@@ -489,7 +497,7 @@
                                        Margin="0,0,0,20"/>
                             <Button x:Name="addCricketPlayer"
                                     Style="{StaticResource addButton}"
-                                    Margin="513,0,0,0"
+                                    Margin="500,0,0,0"
                                     VerticalAlignment="Top"
                                     Height="35" Width="35"
                                     Click="addCricketPlayer_Click"
@@ -542,7 +550,7 @@
                             <Button x:Name="addFootballPlayer"
                                     Style="{StaticResource addButton}"
                                     VerticalAlignment="Top"
-                                    Margin="500,0,0,0"
+                                    Margin="488,0,0,0"
                                     Height="35" Width="35"
                                     Click="addFootballPlayer_Click"
                                     Visibility="Collapsed">

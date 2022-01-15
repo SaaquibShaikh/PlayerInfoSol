@@ -3,6 +3,7 @@ using PlayerInfoMS.DataBaseAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -29,6 +30,19 @@ namespace PlayerInfoMS
             InitializeComponent();
         }
 
+        //convert string to MD5 hash
+        public static string MD5Hash(string input)
+        {
+            StringBuilder hash = new StringBuilder();
+            MD5CryptoServiceProvider md5provider = new MD5CryptoServiceProvider();
+            byte[] bytes = md5provider.ComputeHash(new UTF8Encoding().GetBytes(input));
+
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                hash.Append(bytes[i].ToString("x2"));
+            }
+            return hash.ToString();
+        }
 
         //login window closed event
         private void Window_Closed(object sender, EventArgs e)
@@ -50,7 +64,7 @@ namespace PlayerInfoMS
             if (userList.Exists(x => x.userName == usernameTB.Text) == false)
                 MessageBox.Show("Username doesn't exist");
             else
-            if (userList.Exists(x => x.userName == usernameTB.Text && x.password == passwordB.Password))
+            if (userList.Exists(x => x.userName == usernameTB.Text && x.password == MD5Hash(passwordB.Password)))
             {
                 //Todo Handover the administrator privileges
                 Close();

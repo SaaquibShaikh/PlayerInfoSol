@@ -86,7 +86,7 @@
     <Compile Include="Cricket\CrickPlayer.cs" />
     <Compile Include="Cricket\CrickTeams.cs" />
     <Compile Include="Cricket\CrickTour.cs" />
-    <Compile Include="Cricket\Employee.cs" />
+    <Compile Include="Cricket\CrickTop10.cs" />
     <Compile Include="DataBaseAccess\ConnStringHelper.cs" />
     <Compile Include="DataBaseAccess\DeleteData.cs" />
     <Compile Include="DataBaseAccess\FetchData.cs" />
@@ -149,6 +149,23 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\Poppins-Regular.ttf" />
+    <Resource Include="Fonts\Poppins-BlackItalic.ttf" />
+    <Resource Include="Fonts\Poppins-Bold.ttf" />
+    <Resource Include="Fonts\Poppins-BoldItalic.ttf" />
+    <Resource Include="Fonts\Poppins-ExtraBold.ttf" />
+    <Resource Include="Fonts\Poppins-ExtraBoldItalic.ttf" />
+    <Resource Include="Fonts\Poppins-ExtraLight.ttf" />
+    <Resource Include="Fonts\Poppins-ExtraLightItalic.ttf" />
+    <Resource Include="Fonts\Poppins-Italic.ttf" />
+    <Resource Include="Fonts\Poppins-Light.ttf" />
+    <Resource Include="Fonts\Poppins-LightItalic.ttf" />
+    <Resource Include="Fonts\Poppins-Medium.ttf" />
+    <Resource Include="Fonts\Poppins-MediumItalic.ttf" />
+    <Resource Include="Fonts\Poppins-SemiBold.ttf" />
+    <Resource Include="Fonts\Poppins-SemiBoldItalic.ttf" />
+    <Resource Include="Fonts\Poppins-Thin.ttf" />
+    <Resource Include="Fonts\Poppins-ThinItalic.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

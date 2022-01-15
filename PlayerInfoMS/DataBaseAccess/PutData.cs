@@ -25,7 +25,7 @@ namespace PlayerInfoMS.DataBaseAccess
 
                 try
                 { 
-                    connection.Execute("call insert_teams(@team_id, @team_name, @team_img_path)", teams);
+                    connection.Execute("call insert_team(@team_id, @team_name, @team_img_path)", teams);
                     MessageBox.Show($"Team ID {teamID} inserted");
                 }
                 catch (MySqlException e)

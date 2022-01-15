@@ -22,13 +22,13 @@ namespace PlayerInfoMS
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Employee> emplist = new List<Employee>();
-        List<Employee> emplist2 = new List<Employee>();
+        
 
         FetchData fetchData = new FetchData();
         List<CrickPlayer> crickPlayers = new List<CrickPlayer>();
         List<CrickTour> crickTours = new List<CrickTour>();
         List<CrickTeams> crickTeams = new List<CrickTeams>();
+        List<CrickTop10> crickTop10 = new List<CrickTop10>();
 
 
 
@@ -77,8 +77,8 @@ namespace PlayerInfoMS
             crickPlayers = fetchData.getCirckPlayer().ToList();
             cricketPlayersList.ItemsSource = crickPlayers;
 
-            emplist = fetchData.employees();
-            topCricketPlayers.ItemsSource = emplist;
+            crickTop10 = fetchData.getCirckTop10();
+            topCricketPlayers.ItemsSource = crickTop10;
         }
 
         //Exit on window close button
@@ -156,10 +156,8 @@ namespace PlayerInfoMS
             teamsPageScrollview.Visibility = Visibility.Collapsed;
             playersPageScrollview.Visibility = Visibility.Collapsed;
             playerInfoScrollview.Visibility = Visibility.Collapsed;
-            FetchData empdata = new FetchData();
-            emplist = empdata.employees();
 
-            topCricketPlayers.ItemsSource = emplist;
+            updateBinding();
         }
 
         private void homeLogout_Click(object sender, RoutedEventArgs e)
@@ -193,8 +191,8 @@ namespace PlayerInfoMS
             isFootPlayer = true;
             playerInfoScrollview.Visibility = Visibility.Visible;
             homePageScrollview.Visibility = Visibility.Collapsed;
-            MessageBox.Show($"{emplist.ElementAt(topCricketPlayers.SelectedIndex).Ssn}");
-            playerInfoScrollview.DataContext = emplist;
+            //MessageBox.Show($"{emplist.ElementAt(topCricketPlayers.SelectedIndex).Ssn}");
+            //playerInfoScrollview.DataContext = emplist;
         }
 
         //context menu view click
@@ -202,8 +200,8 @@ namespace PlayerInfoMS
         {
             playerInfoScrollview.Visibility = Visibility.Visible;
             homePageScrollview.Visibility = Visibility.Collapsed;
-            MessageBox.Show($"{emplist.ElementAt(topCricketPlayers.SelectedIndex).Ssn}");
-            playerInfoScrollview.DataContext = emplist;
+            //MessageBox.Show($"{emplist.ElementAt(topCricketPlayers.SelectedIndex).Ssn}");
+            //playerInfoScrollview.DataContext = emplist;
         }
 
         //Add buttons in Players page
