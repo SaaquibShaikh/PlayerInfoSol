@@ -202,9 +202,9 @@
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem"
                                         BasedOn="{StaticResource baseListBoxItem}">
-                                    <Setter Property="Margin" Value="7"/>
+                                    <Setter Property="Margin" Value="10"/>
                                     <EventSetter Event="MouseDoubleClick" 
-                                                     Handler="ListBoxItem_MouseDoubleClick"/>
+                                                     Handler="topCrickPlayerLBI_MouseDoubleClick"/>
                                 </Style>
                             </ListBox.ItemContainerStyle>
                             <ListBox.ContextMenu>
@@ -240,7 +240,7 @@
                           Grid.Column="2"
                           Grid.ColumnSpan="6"
                           Grid.RowSpan="8"
-                          Name="tourPageScrollview">
+                          Name="tourPageScrollview" d:IsHidden="True">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -302,7 +302,8 @@
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Text="Location : "/>
-                                                <TextBlock Text="{Binding t_location}"/>
+                                                <TextBlock Text="{Binding t_location}"
+                                                           FontSize="16"/>
                                             </StackPanel>
                                         </StackPanel>
                                     </Grid>
@@ -312,8 +313,6 @@
                                 <Style TargetType="ListBoxItem"
                                         BasedOn="{StaticResource baseListBoxItem}">
                                     <Setter Property="Margin" Value="7"/>
-                                    <EventSetter Event="MouseDoubleClick" 
-                                                 Handler="ListBoxItem_MouseDoubleClick"/>
                                 </Style>
                             </ListBox.ItemContainerStyle>
                         </ListBox>
@@ -415,6 +414,10 @@
                                         </Ellipse>
                                         <StackPanel Grid.Column="1" Margin="10">
                                             <TextBlock Text="{Binding team_name}"/>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Player Count: "/>
+                                                <TextBlock Text="{Binding tp_count}"/>
+                                            </StackPanel>
                                         </StackPanel>
                                     </Grid>
                                 </DataTemplate>
@@ -422,11 +425,18 @@
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem"
                                         BasedOn="{StaticResource baseListBoxItem}">
-                                    <Setter Property="Margin" Value="7"/>
-                                    <EventSetter Event="MouseDoubleClick" 
-                                                     Handler="ListBoxItem_MouseDoubleClick"/>
+                                    <Setter Property="Margin" Value="10"/>
+                                    <EventSetter Event="MouseDoubleClick"
+                                                 Handler="crickTeamLBI_MouseDoubleClick"/>
                                 </Style>
                             </ListBox.ItemContainerStyle>
+                            <ListBox.ContextMenu>
+                                <ContextMenu Style="{StaticResource baseContextMenu}">
+                                    <MenuItem Header="View" Click="MenuItem_Click"/>
+                                    <MenuItem Header="Edit" />
+                                    <MenuItem Header="Delete" Click="delCrickTeamLBI_Click"/>
+                                </ContextMenu>
+                            </ListBox.ContextMenu>
                         </ListBox>
 
 
@@ -458,6 +468,43 @@
                     </StackPanel>
                 </Grid>
             </ScrollViewer>
+            
+            <!-- Cricket Team players page -->
+            <ListBox x:Name="crickTeamPlayersLB"
+                     Grid.Row="1"
+                     Grid.Column="2"
+                     Grid.ColumnSpan="6"
+                     Grid.RowSpan="8"
+                     Style="{StaticResource baseListBox}"
+                     Margin="20"
+                     Foreground="White"
+                     Visibility="Collapsed">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Ellipse Width="50" Height="50" Grid.Column="0">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding img_path}" />
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <StackPanel Grid.Column="1" Margin="10">
+                                <TextBlock Text="{Binding player_id}"/>
+                                <TextBlock Text="{Binding name}"/>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem"
+                                       BasedOn="{StaticResource baseListBoxItem}">
+                        <Setter Property="Margin" Value="10"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
 
             <!-- Players page -->
             <ScrollViewer Grid.Row="1"
@@ -533,7 +580,7 @@
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem"
                                        BasedOn="{StaticResource baseListBoxItem}">
-                                    <Setter Property="Margin" Value="7"/>
+                                    <Setter Property="Margin" Value="10"/>
                                     <EventSetter Event="MouseDoubleClick"
                                                  Handler="crickPlayerLBI_MouseDoubleClick"/>
                                 </Style>
@@ -618,7 +665,7 @@
                                 <Border CornerRadius="10"
                                         Margin="10">
                                     <Border.Background>
-                                        <ImageBrush Stretch="None" ImageSource="/Icons/default.jpg"/>
+                                        <ImageBrush Stretch="None" ImageSource="{Binding img_path}"/>
                                     </Border.Background>
                                 </Border>
                                 <StackPanel Grid.Column="1"
@@ -627,49 +674,55 @@
                                     <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Name : "
                                                FontSize="20"/>
-                                        <TextBlock Text="{Binding Name}"
+                                        <TextBlock Text="{Binding name}"
                                                FontSize="24"/>
                                     </StackPanel>
                                     <!-- PlayerID -->
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="PlayerID : "
                                                FontSize="20"/>
-                                        <TextBlock Text="hello"
+                                        <TextBlock Text="{Binding player_id}"
                                                FontSize="24"/>
                                     </StackPanel>
                                     <!-- Age -->
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="Age : "
                                                FontSize="20"/>
-                                        <TextBlock Text="hello"
+                                        <TextBlock Text="{Binding age}"
                                                FontSize="24"/>
                                     </StackPanel>
                                     <!-- Height -->
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="Height : "
                                                FontSize="20"/>
-                                        <TextBlock Text="hello"
+                                        <TextBlock Text="{Binding height}"
                                                FontSize="24"/>
                                     </StackPanel>
                                     <!-- Weight -->
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="Weight : "
                                                FontSize="20"/>
-                                        <TextBlock Text="hello"
+                                        <TextBlock Text="{Binding weight}"
                                                FontSize="24"/>
                                     </StackPanel>
                                     <!-- Gender -->
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="Gender : "
                                                FontSize="20"/>
-                                        <TextBlock Text="hello"
+                                        <TextBlock Text="{Binding gender}"
                                                FontSize="24"/>
                                     </StackPanel>
                                     <!-- Role -->
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="Role : "
                                                FontSize="20"/>
-                                        <TextBlock Text="hello"
+                                        <TextBlock Text="{Binding p_role}"
+                                               FontSize="24"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Team : "
+                                               FontSize="20"/>
+                                        <TextBlock Text="{Binding team_name}"
                                                FontSize="24"/>
                                     </StackPanel>
 
@@ -686,7 +739,7 @@
                                        Margin="0,0,0,20"/>
                             <Button x:Name="addScore"
                                     Style="{StaticResource addButton}"
-                                    Margin="515,0,0,0"
+                                    Margin="505,0,0,0"
                                     VerticalAlignment="Top"
                                     Height="35" Width="35"
                                     Click="addScore_Click"
@@ -715,7 +768,7 @@
                                        Margin="0,0,0,20"/>
                             <Button x:Name="addAchivement"
                                     Style="{StaticResource addButton}"
-                                    Margin="450,0,0,0"
+                                    Margin="428,0,0,0"
                                     VerticalAlignment="Top"
                                     Height="35" Width="35"
                                     Visibility="Collapsed">

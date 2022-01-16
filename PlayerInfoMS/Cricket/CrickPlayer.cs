@@ -17,5 +17,6 @@ namespace PlayerInfoMS.Cricket
         public float weight { get; set; }
         public string gender { get; set; }
         public string p_role { get; set; }
+        public string team_name { get; set; }
     }
 }

@@ -25,6 +25,7 @@ namespace PlayerInfoMS
         
 
         FetchData fetchData = new FetchData();
+        DeleteData deleteData = new DeleteData();
         List<CrickPlayer> crickPlayers = new List<CrickPlayer>();
         List<CrickTour> crickTours = new List<CrickTour>();
         List<CrickTeams> crickTeams = new List<CrickTeams>();
@@ -32,7 +33,7 @@ namespace PlayerInfoMS
 
 
 
-        bool isCrikPlayer = false, isFootPlayer = false;
+        bool isCrickPlayer = false, isFootPlayer = false;
         public bool isAdmin = false;
 
         public MainWindow()
@@ -99,6 +100,7 @@ namespace PlayerInfoMS
             teamsPageScrollview.Visibility = Visibility.Collapsed;
             playersPageScrollview.Visibility = Visibility.Collapsed;
             playerInfoScrollview.Visibility = Visibility.Collapsed;
+            crickTeamPlayersLB.Visibility = Visibility.Collapsed;
 
             updateBinding();
         }
@@ -111,6 +113,7 @@ namespace PlayerInfoMS
             teamsPageScrollview.Visibility = Visibility.Collapsed;
             playersPageScrollview.Visibility = Visibility.Collapsed;
             playerInfoScrollview.Visibility = Visibility.Collapsed;
+            crickTeamPlayersLB.Visibility = Visibility.Collapsed;
 
             updateBinding();
         }
@@ -123,6 +126,7 @@ namespace PlayerInfoMS
             teamsPageScrollview.Visibility = Visibility.Visible;
             playersPageScrollview.Visibility = Visibility.Collapsed;
             playerInfoScrollview.Visibility = Visibility.Collapsed;
+            crickTeamPlayersLB.Visibility = Visibility.Collapsed;
 
             updateBinding();
         }
@@ -135,6 +139,7 @@ namespace PlayerInfoMS
             teamsPageScrollview.Visibility = Visibility.Collapsed;
             playersPageScrollview.Visibility = Visibility.Visible;
             playerInfoScrollview.Visibility = Visibility.Collapsed;
+            crickTeamPlayersLB.Visibility = Visibility.Collapsed;
 
             updateBinding();
         }
@@ -156,6 +161,7 @@ namespace PlayerInfoMS
             teamsPageScrollview.Visibility = Visibility.Collapsed;
             playersPageScrollview.Visibility = Visibility.Collapsed;
             playerInfoScrollview.Visibility = Visibility.Collapsed;
+            crickTeamPlayersLB.Visibility = Visibility.Collapsed;
 
             updateBinding();
         }
@@ -186,13 +192,60 @@ namespace PlayerInfoMS
 
         //topCricketPlayers.SelectedIndex --> returns the selected index of a listboxitem
         //MessageBox.Show($"{emplist.ElementAt(topCricketPlayers.SelectedIndex).Ssn}");
-        private void ListBoxItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void topCrickPlayerLBI_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            isFootPlayer = true;
+            isCrickPlayer = true;
             playerInfoScrollview.Visibility = Visibility.Visible;
             homePageScrollview.Visibility = Visibility.Collapsed;
-            //MessageBox.Show($"{emplist.ElementAt(topCricketPlayers.SelectedIndex).Ssn}");
-            //playerInfoScrollview.DataContext = emplist;
+            playersPageScrollview.Visibility = Visibility.Collapsed;
+            string id = crickTop10.ElementAt(topCricketPlayers.SelectedIndex).player_id;
+            playerInfoScrollview.DataContext = crickPlayers.Where(x => x.player_id == id);
+        }
+
+        //Cricket player list box item select event --> opens the cricket player info page
+        private void crickPlayerLBI_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            isCrickPlayer = true;
+            playerInfoScrollview.Visibility = Visibility.Visible;
+            homePageScrollview.Visibility = Visibility.Collapsed;
+            playersPageScrollview.Visibility = Visibility.Collapsed;
+            string id = crickPlayers.ElementAt(cricketPlayersList.SelectedIndex).player_id;
+            playerInfoScrollview.DataContext = crickPlayers.Where(x => x.player_id == id);
+        }
+
+
+        //Football player list box item select event --> opens the football player info page
+        private void footPlayerLBI_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            isFootPlayer = true;
+        }
+
+        private void crickTeamLBI_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            isCrickPlayer = true;
+            crickTeamPlayersLB.Visibility = Visibility.Visible;
+            teamsPageScrollview.Visibility = Visibility.Collapsed;
+            string id = crickTeams.ElementAt(cricketTeamsList.SelectedIndex).team_id;
+            crickTeamPlayersLB.ItemsSource = crickPlayers.Where(x => x.team_id == id);
+        }
+        
+        //delete team context menu
+        private void delCrickTeamLBI_Click(object sender, RoutedEventArgs e)
+        {
+            string id = crickTeams.ElementAt(cricketTeamsList.SelectedIndex).team_id;
+            MessageBoxResult result = MessageBox.Show($"Do you want to delete Team-{id}?", "", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    deleteData.delCrickTeam(id);
+                    updateBinding();
+                    break;
+                case MessageBoxResult.No:
+                    updateBinding();
+                    break;
+            }
+            
+
         }
 
         //context menu view click
@@ -200,8 +253,8 @@ namespace PlayerInfoMS
         {
             playerInfoScrollview.Visibility = Visibility.Visible;
             homePageScrollview.Visibility = Visibility.Collapsed;
-            //MessageBox.Show($"{emplist.ElementAt(topCricketPlayers.SelectedIndex).Ssn}");
-            //playerInfoScrollview.DataContext = emplist;
+            string id = crickTop10.ElementAt(topCricketPlayers.SelectedIndex).player_id;
+            playerInfoScrollview.DataContext = crickPlayers.Where(x => x.player_id == id);
         }
 
         //Add buttons in Players page
@@ -255,24 +308,13 @@ namespace PlayerInfoMS
             adminWindow.ShowDialog();
         }
 
-        //Cricket player list box item select event --> opens the cricket player info page
-        private void crickPlayerLBI_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            isCrikPlayer = true;
-        }
-
-        //Football player list box item select event --> opens the football player info page
-        private void footPlayerLBI_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            isFootPlayer = true;
-        }
 
         //Add buttons in Player Info page
         private void addScore_Click(object sender, RoutedEventArgs e)
         {
             AdminWindow adminWindow = new AdminWindow();
             adminWindow.Owner = this;
-            if (isCrikPlayer)
+            if (isCrickPlayer)
             {
                 adminWindow.crickScoreInsScroll.Visibility = Visibility.Visible;
                 adminWindow.ShowDialog();
