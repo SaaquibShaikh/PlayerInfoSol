@@ -17,7 +17,7 @@
         FontFamily="Fonts/#Poppins">
 
     <Border CornerRadius="20"
-            Background="#272537">
+            Background="#1F1F1F">
         <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -52,12 +52,17 @@
                     MouseRightButtonDown="windowClose_MouseRightButtonDown"
                     ToolTip="Right click to minimize"
                     Style="{StaticResource WindowCloseButton}"/>
+            <Rectangle Grid.Row="0"
+                       Grid.Column="2"
+                       Grid.ColumnSpan="5"
+                       MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"
+                       Fill="Transparent"/>
 
             <!-- navbar -->
             <Border Grid.Row="0" 
                 Grid.RowSpan="9" 
                 Grid.ColumnSpan="2"
-                Background="#272550" 
+                Background="#1A1A1A" 
                 CornerRadius="20"/>
 
             <TextBlock Grid.Row="0" 
@@ -82,7 +87,8 @@
                              Style="{StaticResource MenuButtonTheme}"
                              x:Name="radioHome"
                              Click="radioHome_Click"
-                             IsChecked="True"/>
+                             IsChecked="True"
+                             Margin="10,0"/>
                 
                 
                 <RadioButton Content="Tournaments"
@@ -90,21 +96,24 @@
                              FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
                              x:Name="radioTournaments"
-                             Click="radioTournaments_Click"/>
+                             Click="radioTournaments_Click"
+                             Margin="10,0"/>
 
                 <RadioButton Content="Teams"
                              Height="50"
                              FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
                              x:Name="radioTeams"
-                             Click="radioTeams_Click"/>
+                             Click="radioTeams_Click"
+                             Margin="10,0"/>
 
                 <RadioButton Content="Players"
                              Height="50"
                              FontSize="18"
                              Style="{StaticResource MenuButtonTheme}"
                              x:Name="radioPlayers"
-                             Click="radioPlayers_Click"/>
+                             Click="radioPlayers_Click"
+                             Margin="10,0"/>
             </StackPanel>
             
             <!-- Home page -->
@@ -195,6 +204,10 @@
                                                 <TextBlock Text="Runs: "/>
                                                 <TextBlock Text="{Binding runs}"/>
                                             </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Matches: "/>
+                                                <TextBlock Text="{Binding matches}"/>
+                                            </StackPanel>
                                         </StackPanel>
                                     </Grid>
                                 </DataTemplate>
@@ -202,18 +215,11 @@
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem"
                                         BasedOn="{StaticResource baseListBoxItem}">
-                                    <Setter Property="Margin" Value="10"/>
+                                    <Setter Property="Margin" Value="10,0"/>
                                     <EventSetter Event="MouseDoubleClick" 
                                                      Handler="topCrickPlayerLBI_MouseDoubleClick"/>
                                 </Style>
                             </ListBox.ItemContainerStyle>
-                            <ListBox.ContextMenu>
-                                <ContextMenu Style="{StaticResource baseContextMenu}">
-                                    <MenuItem Header="View" Click="MenuItem_Click"/>
-                                    <MenuItem Header="Edit" />
-                                    <MenuItem Header="Delete" />
-                                </ContextMenu>
-                            </ListBox.ContextMenu>
                         </ListBox>
 
 
@@ -227,8 +233,7 @@
                                  Margin="20 0 80 20"
                                  Style="{StaticResource baseListBox}"
                                  Foreground="white">
-                            <ListBoxItem Style="{StaticResource baseListBoxItem}">hello</ListBoxItem>
-                            <ListBoxItem Style="{StaticResource baseListBoxItem}">mello</ListBoxItem>
+                            
                         </ListBox>
 
                     </StackPanel>
@@ -295,10 +300,27 @@
                                             <ColumnDefinition Width="60"/>
                                             <ColumnDefinition/>
                                         </Grid.ColumnDefinitions>
-                                        <StackPanel Grid.Column="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Grid.Column="0"
+                                                   Grid.Row="0"
+                                                   Text="{Binding tname}"
+                                                   Grid.ColumnSpan="2"
+                                                   Margin="10,5,10,0"
+                                                   FontSize="18"/>
+                                        <StackPanel Grid.Column="1"
+                                                    Grid.Row="1">
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="{Binding tname}"
-                                                           FontSize="20"/>
+                                                <TextBlock Text="Start Date : "/>
+                                                <TextBlock Text="{Binding start_date}"
+                                                           FontSize="16"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="End Date : "/>
+                                                <TextBlock Text="{Binding end_date}"
+                                                           FontSize="16"/>
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Text="Location : "/>
@@ -312,9 +334,17 @@
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem"
                                         BasedOn="{StaticResource baseListBoxItem}">
-                                    <Setter Property="Margin" Value="7"/>
+                                    <Setter Property="Margin" Value="10,0"/>
                                 </Style>
                             </ListBox.ItemContainerStyle>
+                            <ListBox.ContextMenu>
+                                <ContextMenu Name="crickTourCM"
+                                             Style="{StaticResource baseContextMenu}">
+                                    <MenuItem Header="View"/>
+                                    <MenuItem Header="Edit" Click="upCrickTourLBI_Click"/>
+                                    <MenuItem Header="Delete" Click="delCrickTourLBI_Click"/>
+                                </ContextMenu>
+                            </ListBox.ContextMenu>
                         </ListBox>
 
 
@@ -339,8 +369,7 @@
                                  Margin="20 0 80 20"
                                  Style="{StaticResource baseListBox}"
                                  Foreground="white">
-                            <ListBoxItem Style="{StaticResource baseListBoxItem}">hello</ListBoxItem>
-                            <ListBoxItem Style="{StaticResource baseListBoxItem}">mello</ListBoxItem>
+
                         </ListBox>
 
                     </StackPanel>
@@ -425,15 +454,16 @@
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem"
                                         BasedOn="{StaticResource baseListBoxItem}">
-                                    <Setter Property="Margin" Value="10"/>
+                                    <Setter Property="Margin" Value="10,0"/>
                                     <EventSetter Event="MouseDoubleClick"
                                                  Handler="crickTeamLBI_MouseDoubleClick"/>
                                 </Style>
                             </ListBox.ItemContainerStyle>
                             <ListBox.ContextMenu>
-                                <ContextMenu Style="{StaticResource baseContextMenu}">
+                                <ContextMenu Style="{StaticResource baseContextMenu}"
+                                             Name="crickTeamCM">
                                     <MenuItem Header="View" Click="MenuItem_Click"/>
-                                    <MenuItem Header="Edit" />
+                                    <MenuItem Header="Edit" Click="upCrickTeamLBI_Click"/>
                                     <MenuItem Header="Delete" Click="delCrickTeamLBI_Click"/>
                                 </ContextMenu>
                             </ListBox.ContextMenu>
@@ -461,15 +491,14 @@
                                  Margin="20 0 80 20"
                                  Style="{StaticResource baseListBox}"
                                  Foreground="white">
-                            <ListBoxItem Style="{StaticResource baseListBoxItem}">hello</ListBoxItem>
-                            <ListBoxItem Style="{StaticResource baseListBoxItem}">mello</ListBoxItem>
+                            
                         </ListBox>
 
                     </StackPanel>
                 </Grid>
             </ScrollViewer>
             
-            <!-- Cricket Team players page -->
+            <!-- Cricket-Team players page -->
             <ListBox x:Name="crickTeamPlayersLB"
                      Grid.Row="1"
                      Grid.Column="2"
@@ -478,7 +507,8 @@
                      Style="{StaticResource baseListBox}"
                      Margin="20"
                      Foreground="White"
-                     Visibility="Collapsed">
+                     Visibility="Collapsed"
+                     IsSynchronizedWithCurrentItem="True" d:IsHidden="True">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -492,7 +522,8 @@
                                 </Ellipse.Fill>
                             </Ellipse>
                             <StackPanel Grid.Column="1" Margin="10">
-                                <TextBlock Text="{Binding player_id}"/>
+                                <TextBlock Text="{Binding player_id}"
+                                           Name="teamCrickPlayerTB"/>
                                 <TextBlock Text="{Binding name}"/>
                             </StackPanel>
                         </Grid>
@@ -501,7 +532,8 @@
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem"
                                        BasedOn="{StaticResource baseListBoxItem}">
-                        <Setter Property="Margin" Value="10"/>
+                        <Setter Property="Margin" Value="10,0"/>
+                        <EventSetter Event="MouseDoubleClick" Handler="crickTeamPlayerLBI_MouseDoubleClick"/>
                     </Style>
                 </ListBox.ItemContainerStyle>
             </ListBox>
@@ -557,7 +589,8 @@
                                  Height="400"
                                  Margin="20 0 80 20"
                                  Style="{StaticResource baseListBox}"
-                                 Foreground="white">
+                                 Foreground="white"
+                                 IsSynchronizedWithCurrentItem="True">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <Grid>
@@ -571,7 +604,8 @@
                                             </Ellipse.Fill>
                                         </Ellipse>
                                         <StackPanel Grid.Column="1" Margin="10">
-                                            <TextBlock Text="{Binding player_id}"/>
+                                            <TextBlock x:Name="cricketPlayersTB"
+                                                       Text="{Binding player_id}"/>
                                             <TextBlock Text="{Binding name}"/>
                                         </StackPanel>
                                     </Grid>
@@ -580,11 +614,19 @@
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem"
                                        BasedOn="{StaticResource baseListBoxItem}">
-                                    <Setter Property="Margin" Value="10"/>
+                                    <Setter Property="Margin" Value="10,0"/>
                                     <EventSetter Event="MouseDoubleClick"
                                                  Handler="crickPlayerLBI_MouseDoubleClick"/>
                                 </Style>
                             </ListBox.ItemContainerStyle>
+                            <ListBox.ContextMenu>
+                                <ContextMenu Style="{StaticResource baseContextMenu}"
+                                             Name="crickPlayerCM">
+                                    <MenuItem Header="View"/>
+                                    <MenuItem Header="Edit" Click="upCrickPlayerLBI_Click"/>
+                                    <MenuItem Header="Delete" Click="delCrickPlayerLBI_Click" />
+                                </ContextMenu>
+                            </ListBox.ContextMenu>
                         </ListBox>
 
 
@@ -617,7 +659,7 @@
                                             <ColumnDefinition Width="50"/>
                                             <ColumnDefinition/>
                                         </Grid.ColumnDefinitions>
-                                        <Image Source="/Icons/default.jpg"
+                                        <Image Source="/Icons/default.png"
                                                Margin="5,0"/>
                                         <StackPanel Grid.Column="1">
                                             <TextBlock Text="hello"/>
@@ -653,9 +695,10 @@
                         
                         <!-- Player info -->
                         <Border Height="300"
-                                Background="#272550"
+                                Background="#1A1A1A"
                                 CornerRadius="10"
-                                Margin="20,0,80,20">
+                                Margin="20,0,80,20"
+                                x:Name="playerInfoCard">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
@@ -751,15 +794,168 @@
                         <ListBox x:Name="scoresListBox"
                                  Style="{StaticResource baseListBox}"
                                  Margin="20,0,80,20"
-                                 Height="300">
+                                 Height="600" FontSize="16"
+                                 IsSynchronizedWithCurrentItem="True">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="60"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Grid.Column="0"
+                                                   Grid.Row="0"
+                                                   Text="{Binding t_name}"
+                                                   Grid.ColumnSpan="2"
+                                                   Margin="10,5,10,0"
+                                                   FontSize="18"/>
+                                        <StackPanel Grid.Column="1" 
+                                                    Grid.Row="1" 
+                                                    Margin="0" >
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="TourID: "/>
+                                                <TextBlock Text="{Binding t_id}"
+                                                           Name="tourIdTB"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Matches: "/>
+                                                <TextBlock Text="{Binding matches_played}"
+                                                           Name="matchesTB"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Runs: "/>
+                                                <TextBlock Text="{Binding runs}"
+                                                           Name="runsTB"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Wickets: "/>
+                                                <TextBlock Text="{Binding wickets}"
+                                                           Name="wicketsTB"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Maidens: "/>
+                                                <TextBlock Text="{Binding maidens}"
+                                                           Name="maidensTB"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Sixes: "/>
+                                                <TextBlock Text="{Binding sixes}"
+                                                           Name="sixesTB"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="fours: "/>
+                                                <TextBlock Text="{Binding fours}"
+                                                           Name="foursTB"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Centuries: "/>
+                                                <TextBlock Text="{Binding centuries}"
+                                                           Name="centuriesTB"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Fifties: "/>
+                                                <TextBlock Text="{Binding fifties}"
+                                                           Name="fiftiesTB"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem"
                                        BasedOn="{StaticResource baseListBoxItem}">
-                                    
+                                    <Setter Property="Margin" Value="10,0"/>
                                 </Style>
                             </ListBox.ItemContainerStyle>
+                            <ListBox.ContextMenu>
+                                <ContextMenu Style="{StaticResource baseContextMenu}"
+                                             Name="crickScoreCM"
+                                             FontSize="12">
+                                    <MenuItem Header="View"/>
+                                    <MenuItem Header="Edit" Click="upCrickScoreLBI_Click"/>
+                                    <MenuItem Header="Delete" Click="delCrickScoreLBI_Click"/>
+                                </ContextMenu>
+                            </ListBox.ContextMenu>
                         </ListBox>
 
+                        <!-- total score block -->
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="20,0,80,0">
+                            <TextBlock Text="Total Score"
+                                       Foreground="white"
+                                       FontSize="24"
+                                       Margin="0,0,0,20"/>
+                        </StackPanel>
+
+                        <!-- total score card -->
+                        <Border Height="300"
+                                Background="#1A1A1A"
+                                CornerRadius="10"
+                                Margin="20,0,80,20">
+
+                            <StackPanel Grid.Column="1"
+                                        Grid.ColumnSpan="2"
+                                        Margin="30"
+                                        Name="totalScoreCard">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Matches: "
+                                               FontSize="18"/>
+                                    <TextBlock Text="{Binding matches_played}"
+                                               FontSize="20"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Runs: "
+                                               FontSize="18"/>
+                                    <TextBlock Text="{Binding runs}"
+                                                FontSize="20"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Wickets: "
+                                               FontSize="18"/>
+                                    <TextBlock Text="{Binding wickets}"
+                                               FontSize="20"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Maidens: "
+                                               FontSize="18"/>
+                                    <TextBlock Text="{Binding maidens}"
+                                               FontSize="20"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Sixes: "
+                                               FontSize="18"/>
+                                    <TextBlock Text="{Binding sixes}"
+                                               FontSize="20"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="fours: "
+                                               FontSize="18"/>
+                                    <TextBlock Text="{Binding fours}"
+                                               FontSize="20"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Centuries: "
+                                               FontSize="18"/>
+                                    <TextBlock Text="{Binding centuries}"
+                                               FontSize="20"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Fifties: "
+                                               FontSize="18"/>
+                                    <TextBlock Text="{Binding fifties}"
+                                               FontSize="20"/>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </Border>
+
+
+                        <!-- Achivements Block -->
                         <StackPanel Orientation="Horizontal"
                                     Margin="20,0,80,0">
                             <TextBlock Text="Achivements"
@@ -775,9 +971,9 @@
                             </Button>
                         </StackPanel>
 
-                        <!-- Achivements Block -->
+                        <!-- Achivements card -->
                         <Border Height="300"
-                                Background="#272550"
+                                Background="#1A1A1A"
                                 CornerRadius="10"
                                 Margin="20,0,80,20">
 

@@ -13,7 +13,7 @@
         ResizeMode="NoResize"
         Background="Transparent"
         Closing="Window_Closing">
-    <Border Background="#1C1C1C">
+    <Border Background="#1F1F1F">
         <Grid>
             <!-- Teams -->
             <ScrollViewer x:Name="teamInsScroll" Visibility="Collapsed">
@@ -73,6 +73,16 @@
                                    Foreground="#BDBDBD"
                                    FontSize="24"/>
                         <TextBox x:Name="playerIdText"
+                                 Style="{StaticResource baseTextBox}"
+                                 Margin="20,5,150,0"       
+                                 FontSize="24"
+                                 Foreground="#686868"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Team_Id:"
+                                   Foreground="#BDBDBD"
+                                   FontSize="24"/>
+                        <TextBox x:Name="playerTeamIdText"
                                  Style="{StaticResource baseTextBox}"
                                  Margin="20,5,150,0"       
                                  FontSize="24"
@@ -163,7 +173,8 @@
                             Height="50"
                             Width="100"
                             Content="Done"
-                            FontSize="18"/>
+                            FontSize="18"
+                            Click="donePlayers_Click"/>
 
 
                 </StackPanel>
@@ -234,7 +245,8 @@
                             Height="50"
                             Width="100"
                             Content="Done"
-                            FontSize="18"/>
+                            FontSize="18"
+                            Click="doneTour_Click"/>
 
 
                 </StackPanel>
@@ -250,11 +262,27 @@
                                HorizontalAlignment="Center"/>
                     <ListBox x:Name="teamSelectLB"
                              Foreground="#BDBDBD"
-                             Style="{StaticResource adminListBox}"
+                             Style="{StaticResource baseListBox}"
                              FontSize="24"
                              Height="300"
-                             Margin="20,10"
-                             ToolTip="Double click to select">
+                             Margin="20,10">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <StackPanel Margin="10">
+                                        <TextBlock Text="{Binding team_name}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem"
+                                        BasedOn="{StaticResource baseListBoxItem}">
+                                <Setter Property="Margin" Value="10,0"/>
+                                <Setter Property="ToolTip" Value="Double click to select"/>
+                                <EventSetter Event="MouseDoubleClick" Handler="teamSelectLBI_MouseDoubleClick"/>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
                     </ListBox>
                 </StackPanel>
             </ScrollViewer>
@@ -272,8 +300,24 @@
                              Style="{StaticResource adminListBox}"
                              FontSize="24"
                              Height="300"
-                             Margin="20,10"
-                             ToolTip="Double click to select">
+                             Margin="20,10">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <StackPanel Margin="10">
+                                        <TextBlock Text="{Binding tname}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem"
+                                        BasedOn="{StaticResource baseListBoxItem}">
+                                <Setter Property="Margin" Value="10,0"/>
+                                <Setter Property="ToolTip" Value="Double click to select"/>
+                                <EventSetter Event="MouseDoubleClick" Handler="tourSelectLBI_MouseDoubleClick"/>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
                     </ListBox>
                 </StackPanel>
             </ScrollViewer>
@@ -376,7 +420,8 @@
                             Height="50"
                             Width="100"
                             Content="Done"
-                            FontSize="18"/>
+                            FontSize="18"
+                            Click="doneCrickScore_Click"/>
 
                 </StackPanel>
             </ScrollViewer>

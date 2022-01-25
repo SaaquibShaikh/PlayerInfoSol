@@ -69,6 +69,7 @@
                      Grid.RowSpan="2"
                      VerticalAlignment="Center"
                      FontSize="25"
+                     Text="new"
                      Foreground="{DynamicResource ForegroundMainBrush}"/>
             <PasswordBox x:Name="passwordB"
                          Style="{StaticResource roundcornerpassword}"
@@ -77,6 +78,7 @@
                          Grid.ColumnSpan="5"
                          VerticalAlignment="Top"
                          FontSize="25"
+                         Password="new"
                          Foreground="{DynamicResource ForegroundMainBrush}"/>
             <Button x:Name="cancelBT"
                     Style="{StaticResource cancelButton}"

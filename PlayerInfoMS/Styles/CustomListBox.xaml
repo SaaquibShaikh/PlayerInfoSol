@@ -24,7 +24,7 @@
                             BorderThickness="0"
                             CornerRadius="10">
                         <Border.Background>
-                            <SolidColorBrush Color="#272550" />
+                            <SolidColorBrush Color="#1A1A1A" />
                         </Border.Background>
                         <Border.BorderBrush>
                             <SolidColorBrush Color="#888888" />
@@ -80,11 +80,13 @@
         <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderThickness" Value="2" />
         <!--<Setter Property="FocusVisualStyle" Value="" />-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <StackPanel>
+                        <Separator x:Name="Separator" Margin="20,0"/>
                     <Border x:Name="Bd"
                         CornerRadius="10"    
                         BorderBrush="{TemplateBinding BorderBrush}" 
@@ -97,12 +99,16 @@
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                             SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                     </Border>
+                    </StackPanel>
                     <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                            <Setter Property="Visibility" TargetName="Separator" Value="Collapsed"/>
+                        </DataTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsMouseOver" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="Bd" Property="Background" Value="#4E4D6D" />
+                            <Setter TargetName="Bd" Property="Background" Value="#262626" />
                             <Setter TargetName="Bd" Property="BorderBrush" Value="Transparent" />
                             <Setter TargetName="Bd" Property="Cursor" Value="Hand" />
                         </MultiTrigger>
@@ -111,8 +117,8 @@
                                 <Condition Property="Selector.IsSelectionActive" Value="True" />
                                 <Condition Property="IsSelected" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="Bd" Property="Background" Value="#22202F" />
-                            <Setter TargetName="Bd" Property="BorderBrush" Value="Transparent" />
+                            <Setter TargetName="Bd" Property="Background" Value="#474747" />
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="white" />
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="Bd" Property="TextElement.Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
@@ -198,6 +204,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <StackPanel>
+                        <Separator x:Name="Separator" Margin="20,0"/>
                     <Border x:Name="Bd"
                         CornerRadius="10"    
                         BorderBrush="{TemplateBinding BorderBrush}" 
@@ -210,7 +218,11 @@
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                             SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                     </Border>
+                    </StackPanel>
                     <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource PreviousData}}" Value="{x:Null}">
+                            <Setter Property="Visibility" TargetName="Separator" Value="Collapsed"/>
+                        </DataTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsMouseOver" Value="True" />

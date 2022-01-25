@@ -9,6 +9,7 @@ namespace PlayerInfoMS.Cricket
     public class CrickPlayer
     {
         public string player_id { get; set; }
+        public string new_player_id { get; set; }
         public string team_id { get; set; }
         public string img_path { get; set; }
         public string name { get; set; }

@@ -84,13 +84,16 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Cricket\CrickPlayer.cs" />
+    <Compile Include="Cricket\CrickScore.cs" />
     <Compile Include="Cricket\CrickTeams.cs" />
     <Compile Include="Cricket\CrickTour.cs" />
     <Compile Include="Cricket\CrickTop10.cs" />
+    <Compile Include="Cricket\CrickTotalScore.cs" />
     <Compile Include="DataBaseAccess\ConnStringHelper.cs" />
     <Compile Include="DataBaseAccess\DeleteData.cs" />
     <Compile Include="DataBaseAccess\FetchData.cs" />
     <Compile Include="DataBaseAccess\PutData.cs" />
+    <Compile Include="DataBaseAccess\UpdateData.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -179,9 +182,6 @@
     <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icons\default.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Icons\icon_1024.png" />
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +189,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\group.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

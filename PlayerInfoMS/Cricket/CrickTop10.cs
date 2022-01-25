@@ -12,5 +12,6 @@ namespace PlayerInfoMS.Cricket
         public string img_path { get; set; }
         public string name { get; set; }
         public int runs { get; set; }
+        public int matches { get; set; }
     }
 }

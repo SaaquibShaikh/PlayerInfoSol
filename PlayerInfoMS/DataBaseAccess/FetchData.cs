@@ -65,5 +65,29 @@ namespace PlayerInfoMS.DataBaseAccess
 
             }
         }
+
+        public List<CrickScore> getCirckScores()
+        {
+            using (IDbConnection connection = new MySqlConnection(ConnStringHelper.getConnString("CricketDB")))
+            {
+
+
+                return connection.Query<CrickScore>("call select_score").ToList();
+                 
+
+            }
+        }
+
+        public List<CrickTotalScore> getCirckTotalScores()
+        {
+            using (IDbConnection connection = new MySqlConnection(ConnStringHelper.getConnString("CricketDB")))
+            {
+
+
+                return connection.Query<CrickTotalScore>("call select_total_score").ToList();
+
+
+            }
+        }
     }
 }

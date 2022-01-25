@@ -24,14 +24,15 @@
                       KeyboardNavigation.DirectionalNavigation="Cycle" />
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="HasDropShadow"
-                   Value="true">
-                            <Setter TargetName="Border"
-                    Property="Padding"
-                    Value="0,3,0,3" />
-                            <Setter TargetName="Border"
-                    Property="CornerRadius"
-                    Value="4" />
+                        <Trigger Property="HasDropShadow" Value="True">
+                            <Setter TargetName="Border" Property="Padding" Value="0,3,0,3" />
+                            <Setter TargetName="Border" Property="CornerRadius" Value="4" />
+                        </Trigger> 
+                        <Trigger Property="Focusable" Value="False">
+                            <Setter TargetName="Border" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                        <Trigger Property="Focusable" Value="True">
+                            <Setter TargetName="Border" Property="Visibility" Value="Visible"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
