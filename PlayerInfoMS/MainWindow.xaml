@@ -13,7 +13,7 @@
         WindowStartupLocation="CenterScreen" 
         Background="Transparent"
         AllowsTransparency="True" Loaded="Window_Loaded"
-        Icon="/Icons/icon_1024.png"
+        Icon="/Icons/pdbIcon.png"
         FontFamily="Fonts/#Poppins">
 
     <Border CornerRadius="20"

@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Icons\icon_1024.ico</ApplicationIcon>
+    <ApplicationIcon>Icons\pdbIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -183,12 +183,6 @@
     <Folder Include="Football\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icons\icon_1024.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icons\icon_1024.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Icons\add.png" />
   </ItemGroup>
   <ItemGroup>
@@ -196,6 +190,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\pdbIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\pdbIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
