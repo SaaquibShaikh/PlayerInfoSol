@@ -223,18 +223,9 @@
                         </ListBox>
 
 
-                        <TextBlock Text="Football"
-                                   Foreground="white"
-                                   FontSize="24"
-                                   Margin="20,0,20,20"/>
 
                         <!-- top Football players list -->
-                        <ListBox Height="200"
-                                 Margin="20 0 80 20"
-                                 Style="{StaticResource baseListBox}"
-                                 Foreground="white">
-                            
-                        </ListBox>
+                        
 
                     </StackPanel>
                 </Grid>
@@ -289,7 +280,7 @@
 
                             <!-- Cricket players list -->
                         <ListBox x:Name="cricketTourList"
-                                 Height="400"
+                                 Height="450"
                                  Margin="20 0 80 20"
                                  Style="{StaticResource baseListBox}"
                                  Foreground="white">
@@ -346,30 +337,8 @@
                             </ListBox.ContextMenu>
                         </ListBox>
 
-
-                        <StackPanel Orientation="Horizontal"
-                                    Margin="20,0,80,0">
-                            <TextBlock Text="Football"
-                                       Foreground="white"
-                                       Margin="0,0,0,20"
-                                       FontSize="24"/>
-                            <Button x:Name="addFootballTour"
-                                    Style="{StaticResource addButton}"
-                                    VerticalAlignment="Top"
-                                    Margin="488,0,0,0"
-                                    Height="35" Width="35"
-                                    Click="addFootballTour_Click"
-                                    Visibility="Collapsed">
-                            </Button>
-                        </StackPanel>
-
                         <!-- Football players list -->
-                        <ListBox Height="200"
-                                 Margin="20 0 80 20"
-                                 Style="{StaticResource baseListBox}"
-                                 Foreground="white">
-
-                        </ListBox>
+                        
 
                     </StackPanel>
                 </Grid>
@@ -424,7 +393,7 @@
 
                         <!-- Cricket players list -->
                         <ListBox x:Name="cricketTeamsList"
-                                 Height="400"
+                                 Height="450"
                                  Margin="20 0 80 20"
                                  Style="{StaticResource baseListBox}"
                                  Foreground="white">
@@ -467,30 +436,8 @@
                             </ListBox.ContextMenu>
                         </ListBox>
 
-
-                        <StackPanel Orientation="Horizontal"
-                                    Margin="20,0,80,0">
-                            <TextBlock Text="Football"
-                                       Foreground="white"
-                                       Margin="0,0,0,20"
-                                       FontSize="24"/>
-                            <Button x:Name="addFootballTeam"
-                                    Style="{StaticResource addButton}"
-                                    VerticalAlignment="Top"
-                                    Margin="488,0,0,0"
-                                    Height="35" Width="35"
-                                    Click="addFootballTeam_Click"
-                                    Visibility="Collapsed">
-                            </Button>
-                        </StackPanel>
-
                         <!-- Football players list -->
-                        <ListBox Height="200"
-                                 Margin="20 0 80 20"
-                                 Style="{StaticResource baseListBox}"
-                                 Foreground="white">
-                            
-                        </ListBox>
+                        
 
                     </StackPanel>
                 </Grid>
@@ -506,6 +453,7 @@
                      Margin="20"
                      Foreground="White"
                      Visibility="Collapsed"
+                     Height="450"
                      IsSynchronizedWithCurrentItem="True" d:IsHidden="True">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -584,7 +532,7 @@
 
                         <!-- Cricket players list -->
                         <ListBox x:Name="cricketPlayersList"
-                                 Height="400"
+                                 Height="450"
                                  Margin="20 0 80 20"
                                  Style="{StaticResource baseListBox}"
                                  Foreground="white"
@@ -626,54 +574,8 @@
                             </ListBox.ContextMenu>
                         </ListBox>
 
-
-                        <StackPanel Orientation="Horizontal"
-                                    Margin="20,0,80,0">
-                            <TextBlock Text="Football"
-                                       Foreground="white"
-                                       Margin="0,0,0,20"
-                                       FontSize="24"/>
-                            <Button x:Name="addFootballPlayer"
-                                    Style="{StaticResource addButton}"
-                                    VerticalAlignment="Top"
-                                    Margin="488,0,0,0"
-                                    Height="35" Width="35"
-                                    Click="addFootballPlayer_Click"
-                                    Visibility="Collapsed">
-                            </Button>
-                        </StackPanel>
-
                         <!-- Football players list -->
-                        <ListBox x:Name="footballPlayersList"
-                                 Height="200"
-                                 Margin="20 0 80 20"
-                                 Style="{StaticResource baseListBox}"
-                                 Foreground="white">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="50"/>
-                                            <ColumnDefinition/>
-                                        </Grid.ColumnDefinitions>
-                                        <Image Source="/Icons/default.png"
-                                               Margin="5,0"/>
-                                        <StackPanel Grid.Column="1">
-                                            <TextBlock Text="hello"/>
-                                            <TextBlock Text="world"/>
-                                        </StackPanel>
-                                    </Grid>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                            <ListBox.ItemContainerStyle>
-                                <Style TargetType="ListBoxItem"
-                                       BasedOn="{StaticResource baseListBoxItem}">
-                                    <Setter Property="Margin" Value="7"/>
-                                    <EventSetter Event="MouseDoubleClick"
-                                                 Handler="footPlayerLBI_MouseDoubleClick"/>
-                                </Style>
-                            </ListBox.ItemContainerStyle>
-                        </ListBox>
+                        
 
                     </StackPanel>
                 </Grid>

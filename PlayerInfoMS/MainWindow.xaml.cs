@@ -79,9 +79,6 @@ namespace PlayerInfoMS
                 addCricketPlayer.Visibility = Visibility.Visible;
                 addCricketTeam.Visibility = Visibility.Visible;
                 addCricketTour.Visibility = Visibility.Visible;
-                addFootballPlayer.Visibility = Visibility.Visible;
-                addFootballTeam.Visibility = Visibility.Visible;
-                addFootballTour.Visibility = Visibility.Visible;
                 addScore.Visibility = Visibility.Visible;
                 crickTourCM.Focusable = true;
                 crickTeamCM.Focusable = true;
@@ -95,9 +92,6 @@ namespace PlayerInfoMS
                 addCricketPlayer.Visibility = Visibility.Collapsed;
                 addCricketTeam.Visibility = Visibility.Collapsed;
                 addCricketTour.Visibility = Visibility.Collapsed;
-                addFootballPlayer.Visibility = Visibility.Collapsed;
-                addFootballTeam.Visibility = Visibility.Collapsed;
-                addFootballTour.Visibility = Visibility.Collapsed;
                 addScore.Visibility = Visibility.Collapsed;
                 crickTourCM.Focusable = false;
                 crickTeamCM.Focusable = false;
@@ -515,14 +509,6 @@ namespace PlayerInfoMS
             adminWindow.ShowDialog();
         }
 
-        private void addFootballPlayer_Click(object sender, RoutedEventArgs e)
-        {
-            AdminWindow adminWindow = new AdminWindow();
-            adminWindow.Owner = this;
-            adminWindow.teamSelectScroll.Visibility = Visibility.Visible;
-            adminWindow.ShowDialog();
-        }
-
         //Add buttons in Teams page
         private void addCricketTeam_Click(object sender, RoutedEventArgs e)
         {
@@ -532,25 +518,8 @@ namespace PlayerInfoMS
             adminWindow.ShowDialog();
         }
 
-        private void addFootballTeam_Click(object sender, RoutedEventArgs e)
-        {
-            AdminWindow adminWindow = new AdminWindow();
-            adminWindow.Owner = this;
-            adminWindow.teamInsScroll.Visibility = Visibility.Visible;
-            adminWindow.ShowDialog();
-        }
-
         //Add buttons in Tournament page
         private void addCricketTour_Click(object sender, RoutedEventArgs e)
-        {
-            AdminWindow adminWindow = new AdminWindow();
-            adminWindow.Owner = this;
-            adminWindow.tourInsScroll.Visibility = Visibility.Visible;
-            adminWindow.ShowDialog();
-        }
-
-
-        private void addFootballTour_Click(object sender, RoutedEventArgs e)
         {
             AdminWindow adminWindow = new AdminWindow();
             adminWindow.Owner = this;
