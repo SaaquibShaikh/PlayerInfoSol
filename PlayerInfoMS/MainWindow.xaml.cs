@@ -32,11 +32,12 @@ namespace PlayerInfoMS
         List<CrickTop10> crickTop10 = new List<CrickTop10>();
         List<CrickScore> crickScores = new List<CrickScore>();
         List<CrickTotalScore> crickTotalScores = new List<CrickTotalScore>();
+        List<CrickAchieve> crickAchieve = new List<CrickAchieve>();
 
 
 
         bool isCrickPlayer = false, isFootPlayer = false;
-        public bool isAdmin = false, isTeamUp = false, isTourUp = false, isPlayerUp = false, isScoreUp = false;
+        public bool isAdmin = false, isTeamUp = false, isTourUp = false, isPlayerUp = false, isScoreUp = false, isAchieveUp = false;
         public string oldTeamID, oldTourID, oldPlayerID;
         public string selectedPlayerID, selectedTourID;
 
@@ -86,6 +87,7 @@ namespace PlayerInfoMS
                 crickTeamCM.Focusable = true;
                 crickPlayerCM.Focusable = true;
                 crickScoreCM.Focusable = true;
+                crickAchieveCM.Focusable = true;
             }
             else
             {
@@ -101,7 +103,7 @@ namespace PlayerInfoMS
                 crickTeamCM.Focusable = false;
                 crickPlayerCM.Focusable = false;
                 crickScoreCM.Focusable = false;
-
+                crickAchieveCM.Focusable = false;
             }
         }
 
@@ -125,6 +127,9 @@ namespace PlayerInfoMS
 
             crickTotalScores = fetchData.getCirckTotalScores();
             totalScoreCard.DataContext = crickTotalScores.Where(x => x.player_id == selectedPlayerID).ToList();
+
+            crickAchieve = fetchData.getCirckAchieve();
+            achievement_card.DataContext = crickAchieve.Where(x => x.p_id == selectedPlayerID).ToList();
         }
 
         //Exit on window close button
@@ -482,16 +487,23 @@ namespace PlayerInfoMS
 
             adminWindow.ShowDialog();
         }
-
-        //view buttons
-        //context menu view click
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        //Achievment edit context menu click
+        private void upCrickAchieveLBI_Click(object sender, RoutedEventArgs e)
         {
-            playerInfoScrollview.Visibility = Visibility.Visible;
-            homePageScrollview.Visibility = Visibility.Collapsed;
-            string id = crickTop10.ElementAt(topCricketPlayers.SelectedIndex).player_id;
-            playerInfoScrollview.DataContext = crickPlayers.Where(x => x.player_id == id);
+            isAchieveUp = true;
+
+            AdminWindow adminWindow = new AdminWindow();
+            adminWindow.Owner = this;
+            adminWindow.achivementsInsScroll.Visibility = Visibility.Visible;
+
+            adminWindow.awardsTB.Text = crickAchieve.Single(x => x.p_id == selectedPlayerID).awards;
+            adminWindow.matchesWonTB.Text = crickAchieve.Single(x => x.p_id == selectedPlayerID).matches_won.ToString();
+
+
+            adminWindow.ShowDialog();
         }
+
+
         //add buttons
         //Add buttons in Players page
         private void addCricketPlayer_Click(object sender, RoutedEventArgs e)
@@ -565,6 +577,14 @@ namespace PlayerInfoMS
                 adminWindow.ShowDialog();
             }
         }
-  
+
+        private void addAchivement_Click(object sender, RoutedEventArgs e)
+        {
+            AdminWindow adminWindow = new AdminWindow();
+            adminWindow.Owner = this;
+            adminWindow.achivementsInsScroll.Visibility = Visibility.Visible;
+            adminWindow.ShowDialog();
+        }
+
     }
 }

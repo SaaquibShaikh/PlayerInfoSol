@@ -89,5 +89,17 @@ namespace PlayerInfoMS.DataBaseAccess
 
             }
         }
+
+        public List<CrickAchieve> getCirckAchieve()
+        {
+            using (IDbConnection connection = new MySqlConnection(ConnStringHelper.getConnString("CricketDB")))
+            {
+
+
+                return connection.Query<CrickAchieve>("call select_achievment").ToList();
+
+
+            }
+        }
     }
 }

@@ -340,7 +340,6 @@
                             <ListBox.ContextMenu>
                                 <ContextMenu Name="crickTourCM"
                                              Style="{StaticResource baseContextMenu}">
-                                    <MenuItem Header="View"/>
                                     <MenuItem Header="Edit" Click="upCrickTourLBI_Click"/>
                                     <MenuItem Header="Delete" Click="delCrickTourLBI_Click"/>
                                 </ContextMenu>
@@ -462,7 +461,6 @@
                             <ListBox.ContextMenu>
                                 <ContextMenu Style="{StaticResource baseContextMenu}"
                                              Name="crickTeamCM">
-                                    <MenuItem Header="View" Click="MenuItem_Click"/>
                                     <MenuItem Header="Edit" Click="upCrickTeamLBI_Click"/>
                                     <MenuItem Header="Delete" Click="delCrickTeamLBI_Click"/>
                                 </ContextMenu>
@@ -622,7 +620,6 @@
                             <ListBox.ContextMenu>
                                 <ContextMenu Style="{StaticResource baseContextMenu}"
                                              Name="crickPlayerCM">
-                                    <MenuItem Header="View"/>
                                     <MenuItem Header="Edit" Click="upCrickPlayerLBI_Click"/>
                                     <MenuItem Header="Delete" Click="delCrickPlayerLBI_Click" />
                                 </ContextMenu>
@@ -875,7 +872,6 @@
                                 <ContextMenu Style="{StaticResource baseContextMenu}"
                                              Name="crickScoreCM"
                                              FontSize="12">
-                                    <MenuItem Header="View"/>
                                     <MenuItem Header="Edit" Click="upCrickScoreLBI_Click"/>
                                     <MenuItem Header="Delete" Click="delCrickScoreLBI_Click"/>
                                 </ContextMenu>
@@ -967,7 +963,8 @@
                                     Margin="428,0,0,0"
                                     VerticalAlignment="Top"
                                     Height="35" Width="35"
-                                    Visibility="Collapsed">
+                                    Visibility="Collapsed"
+                                    Click="addAchivement_Click">
                             </Button>
                         </StackPanel>
 
@@ -979,16 +976,17 @@
 
                             <StackPanel Grid.Column="1"
                                         Grid.ColumnSpan="2"
-                                        Margin="30">
+                                        Margin="30"
+                                        Name="achievement_card">
                                 <!-- Achivements -->
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="Achivements : "
+                                        <TextBlock Text="Awards : "
                                                FontSize="20"/>
                                     <Viewbox>
                                         <StackPanel Orientation="Vertical" Width="450">
                                             <TextBlock FontSize="24" 
                                                        TextWrapping="Wrap" 
-                                                       Text="asdkfaskdf sadjff djfksajdfk skjfksjfkkasdjfksakfdsak dfksj fdks fjsk fksjfkfsjkfjkjdfk safkjskffjskjfksajfd kasjfk" />
+                                                       Text="{Binding awards}"/>
                                         </StackPanel>
                                     </Viewbox>
                                 </StackPanel>
@@ -996,22 +994,23 @@
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Matches own: "
                                                FontSize="20"/>
-                                    <TextBlock Text="hello"
+                                    <TextBlock Text="{Binding matches_won}"
                                                FontSize="24"/>
                                 </StackPanel>
-
                             </StackPanel>
-
+                            <Border.ContextMenu>
+                                <ContextMenu Style="{StaticResource baseContextMenu}"
+                                             Name="crickAchieveCM"
+                                             FontSize="12">
+                                    <MenuItem Header="Edit" Click="upCrickAchieveLBI_Click"/>
+                                </ContextMenu>
+                            </Border.ContextMenu>
                         </Border>
 
                     </StackPanel>
                 </Grid>
             </ScrollViewer>
             
-
-
-            <!--<ContentControl x:Name="loginPage" Grid.Row="1" Grid.Column="2" 
-                        Grid.ColumnSpan="4" Grid.RowSpan="4"/-->
     </Grid>
     </Border>
 </Window>

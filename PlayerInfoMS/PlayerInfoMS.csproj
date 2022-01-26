@@ -83,6 +83,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Cricket\CrickAchieve.cs" />
     <Compile Include="Cricket\CrickPlayer.cs" />
     <Compile Include="Cricket\CrickScore.cs" />
     <Compile Include="Cricket\CrickTeams.cs" />
@@ -179,7 +180,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\" />
+    <Folder Include="Football\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\icon_1024.png" />

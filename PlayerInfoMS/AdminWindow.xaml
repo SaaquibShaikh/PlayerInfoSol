@@ -508,7 +508,46 @@
             </ScrollViewer>
             
             <!-- Achivements insert -->
-            
+            <ScrollViewer x:Name="achivementsInsScroll" Visibility="Collapsed">
+                <StackPanel Margin="20">
+
+                    <StackPanel>
+                        <TextBlock Text="Achivements:"
+                                   Foreground="#BDBDBD"
+                                   FontSize="24"/>
+                        <TextBox x:Name="awardsTB"
+                                 Style="{StaticResource baseTextBox}"
+                                 Margin="20,5,150,0"       
+                                 FontSize="24"
+                                 Foreground="#686868"
+                                 Height="200"
+                                 TextWrapping="Wrap"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Matches Won:"
+                                   Foreground="#BDBDBD"
+                                   FontSize="24"
+                                   Margin="0,20,0,0"/>
+                        <TextBox x:Name="matchesWonTB"
+                                 Style="{StaticResource baseTextBox}"
+                                 Margin="20,5,150,0"    
+                                 FontSize="24"
+                                 Foreground="#686868"/>
+                    </StackPanel>
+
+                    <Button x:Name="doneAchiveScore"
+                            Style="{StaticResource doneButton}"
+                            HorizontalAlignment="Center"
+                            Margin="250,20,0,20"
+                            Height="50"
+                            Width="100"
+                            Content="Done"
+                            FontSize="18"
+                            Click="doneAchiveScore_Click"/>
+
+                </StackPanel>
+            </ScrollViewer>
+
         </Grid>
     </Border>
 </Window>

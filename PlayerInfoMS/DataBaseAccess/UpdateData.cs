@@ -97,5 +97,26 @@ namespace PlayerInfoMS.DataBaseAccess
             }
         }
 
+        public void updateCrickAchievment(string pid, string pawards, int wins)
+        {
+            using (IDbConnection connection = new MySqlConnection(ConnStringHelper.getConnString("CricketDB")))
+            {
+                CrickAchieve achieveObj = new CrickAchieve { p_id = pid, awards = pawards, matches_won = wins };
+
+                List<CrickAchieve> achieve = new List<CrickAchieve>();
+                achieve.Add(achieveObj);
+
+                try
+                {
+                    connection.Execute("call update_achievment( @p_id, @awards, @matches_won)", achieve);
+                    MessageBox.Show($"Achievement for Player-{pid} updated");
+                }
+                catch (MySqlException e)
+                {
+                    MessageBox.Show($"{e.Message}\n{e.InnerException}");
+                }
+            }
+        }
+
     }
 }

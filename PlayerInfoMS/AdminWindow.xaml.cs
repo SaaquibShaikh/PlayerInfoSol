@@ -209,6 +209,31 @@ namespace PlayerInfoMS
 
         }
 
+        private void doneAchiveScore_Click(object sender, RoutedEventArgs e)
+        {
+            PutData insAchieve = new PutData();
+            UpdateData upAchieve = new UpdateData();
+            MainWindow mainWindow = Owner as MainWindow;
+
+            string strAwards = awardsTB.Text, strWins = matchesWonTB.Text;
+            int iWins;
+
+            if (strAwards == "")
+                strAwards = null;
+
+            if (strWins == "")
+                iWins = 0;
+            else
+                iWins = int.Parse(strWins);
+            
+            if (mainWindow.isAchieveUp == true)
+                upAchieve.updateCrickAchievment(mainWindow.selectedPlayerID, strAwards, iWins);
+            else
+                insAchieve.insertCrickAchievment(mainWindow.selectedPlayerID, strAwards, iWins);
+            
+            mainWindow.updateBinding();
+        }
+
         private void teamSelectLBI_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
 
@@ -236,6 +261,5 @@ namespace PlayerInfoMS
             crickScoreInsScroll.Visibility = Visibility.Visible;
         }
 
-        
     }
 }
