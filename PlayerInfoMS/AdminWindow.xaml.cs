@@ -202,7 +202,7 @@ namespace PlayerInfoMS
             if (mainWindow.isScoreUp == true)
                 upScore.updateCrickScore(mainWindow.selectedPlayerID, mainWindow.selectedTourID, iMatchesPlayed, iRuns, iWickets, iMaidens, iSixes, iFours, iCenturies, iFifties);
             else
-                insScore.insertCrickScore(mainWindow.selectedPlayerID, mainWindow.selectedTourID, iMatchesPlayed, iRuns, iWickets, iMaidens, iSixes, iFours, iCenturies, iFifties);
+                insScore.insertCrickScore(mainWindow.selectedPlayerID, selectedTourId, iMatchesPlayed, iRuns, iWickets, iMaidens, iSixes, iFours, iCenturies, iFifties);
 
 
             mainWindow.updateBinding();
